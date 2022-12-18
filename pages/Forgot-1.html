@@ -12,26 +12,33 @@
 <body>
     <div class="Forgot">
         <div class="arrow">
-            <a href="http://127.0.0.1:5500/codes/forgot%20password.html"> <img alt="password" class="img-arr"
-                    src="../assets/Images/Banner Image/back arror.png" style="height:70px; width:80px;"></a>
-            <p class=" skip"><a href="http://127.0.0.1:5500/codes/forgot%20password.html">Back</a></p>
+            <a href="http://127.0.0.1:5500/pages/FORGOT.html"> <img alt="password" class="img-arr"
+                    src="../assets/Images/icons/icons8-back-arrow-96.png"></a>
+            <p class=" skip"><a href="http://127.0.0.1:5500/pages/FORGOT.html">Back</a></p>
 
         </div>
         <div class="Forgot1">
 
-            <img alt="logo" src="../assets/Images/logos/Logo.png">
-            <label for="tel" class="otp">Enter OTP</label>
-            <div class="verif"> <input type="tel" for="otp"><img alt="verify" class="verify"
-                    src="../assets/Images/Banner Image/verify.png" style="height:70px; width:80px;">
-            </div><br>
-            <label for="Password" class="Password" value="Password">New Password</label>
-            <input type="password" class="password" placeholder="eg.W65FR5TRY"><br>
-            <label for="email" class="email" value="email">Confirm Password</label>
-            <input type="Email" class="input" placeholder="eg. logesh@gmail.com"><br>
-            <button class="btn-forgot"><a href="http://127.0.0.1:5500/codes/index.html">Continue</a></button>
+            <img id="img-arr1" alt="logo" src="../assets/Images/logos/logo correct.png">
+            <label for="tel" class="otp">
+                <p>Enter OTP</p>
+                <div class="verif"> <input type="tel" for="otp"><img alt="verify" class="verify"
+                        src="../assets/Images/icons/icons8-checkmark-48.png" style="height:40px; width:50px;">
+                </div><br>
+            </label>
+
+            <form action="#">
+                <label class="new-password" for="newpassword">Create New Password<input class="new-password"
+                        placeholder="create Strong password" type="password"></label><br>
+                <br><br>
+                <label class="new-password" for="newpassword">Confirm New Password <input class="new-password"
+                        placeholder="Confirm Strong password" type="password"></label><br>
+                <br><br>
+                <button class="btn-forgot" id="button-forgot"><a
+                        href="http://127.0.0.1:5500/pages/login.html">Continue</a></button>
 
 
-
+            </form>
         </div>
     </div>
 </body>

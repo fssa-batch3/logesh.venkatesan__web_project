@@ -69,8 +69,23 @@ body::-webkit-scrollbar {
 
 }
 
+.button-img-now {
+    height: 3em;
+    width: 3em;
+    border-radius: 2em;
+    margin-top: -0.8em;
+    margin-left: -0.8em;
+}
+
+.button-para-now {
+    margin-left: 0.5em;
+    margin-top: 0.2em;
+    font-weight: 600;
+}
+
 .home-nav-link-reuse {
     color: white;
+    margin-left: -0.5em;
 }
 
 .nav-logo {
@@ -101,6 +116,7 @@ body::-webkit-scrollbar {
     padding: 12px 22px;
     margin-top: -1rem;
     border-radius: 2rem;
+    display: flex;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
@@ -482,7 +498,7 @@ footer {
     background-color: var(--room);
     border-radius: 3em;
     height: 50em;
-    width: 1430px;
+    width: 1453px;
     margin: 1.8em 1.8em;
     display: flex;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -757,7 +773,7 @@ footer {
     position: fixed;
     margin-left: 2em;
     bottom: 4.9em;
-    display: flex;
+
 
 }
 
@@ -900,7 +916,6 @@ footer {
 .head12 {
     color: white;
     margin-top: 5em;
-    width: 9em;
 }
 
 /* BYEVIDEO BELOW */
@@ -945,10 +960,12 @@ footer {
     box-shadow: rgba(94, 88, 88, 0.56) 0px 22px 70px 4px;
 }
 
+
+
 .Forgot1 {
     background-color: var(--redishorange);
-    height: 400px;
-    width: 300px;
+    height: 700px;
+    width: 400px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -982,12 +999,13 @@ input {
     padding: 12px 25px;
     margin-top: -20px;
     background-color: orange;
-    color: white;
+    color: rgb(1, 0, 0);
     border-radius: 20px;
+    margin-left: 0em;
 }
 
 .email {
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .input {
@@ -997,7 +1015,7 @@ input {
 .img-arr {
     height: 60px;
     width: 60px;
-    margin-top: 20px;
+    margin-top: 30px;
 
 
 }
@@ -1013,7 +1031,7 @@ input {
 }
 
 a {
-    color: var(--Black);
+    color: black;
 }
 
 /* FORGOT PAGE-2 */
@@ -1024,9 +1042,9 @@ a {
 }
 
 .Forgot1 {
-    background-color: #ffffff;
-    height: 500px;
-    width: 400px;
+    background-color: rgb(98, 128, 138);
+    height: 420px;
+    width: 293px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -1034,13 +1052,11 @@ a {
     align-items: center;
     border: 4px solid black;
     margin: 130px auto;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
-.Forgot img {
-    height: 150px;
-    width: 180px;
 
-}
+
 
 ::placeholder {
     opacity: 0.4px;
@@ -1059,29 +1075,38 @@ input {
 
 .btn-forgot {
     padding: 12px 25px;
-
+    margin-top: -1em;
     background-color: orange;
-    color: white;
+    color: rgb(255, 255, 255);
     border-radius: 20px;
+
+    margin-bottom: 1em;
+    margin-left: 7em;
 }
 
 
 
 .input {
-    margin-top: 12px;
+    margin-top: -33px;
 }
 
-.img-arr {
-    height: 60px;
-    width: 60px;
-    margin-top: 20px;
+#img-arr1 {
+    height: 51px;
+    width: 196px;
+    margin-top: 35px;
 
 
 }
+
+.new-password {
+    margin-left: 4em;
+}
+
+
 
 .skip {
     font-size: xx-large;
-    margin-top: 32px;
+    margin-top: 41px;
 }
 
 .arrow {
@@ -1090,22 +1115,115 @@ input {
 }
 
 a {
-    color: white;
+    color: rgb(3, 3, 3);
 }
 
-.verify {
-    height: 45px;
-    width: 45px;
-
-
-}
 
 .verif {
     display: flex;
     justify-content: space-evenly;
     margin-left: 40px;
+    height: 48px;
+    width: 48px;
 }
 
 .otp {
-    margin-left: -20px;
+    margin-left: 3px;
+    margin-top: 1em;
+}
+
+
+
+/* tips and tricks  */
+.footer-comment {
+    margin-top: 12em;
+}
+
+.button-home-footer-6 {
+    margin-left: -46em;
+    margin-top: 48em;
+    background-color: var(--chat);
+    height: 60px;
+    width: 100px;
+    border-radius: 2em;
+    border: 2px solid var(--Black);
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.minicontainer-for-centerprofle {
+    height: 44em;
+    width: 82em;
+    background-color: var(--chat);
+    margin: 3em 1em;
+    border-radius: 3em;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.centerprofile-heading-1 {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 3em;
+    margin-top: 0.7em;
+    color: white;
+
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 1em 7em;
+    height: 30em;
+    width: 20em;
+    background-color: whitesmoke;
+    align-items: center;
+    padding-top: 3em;
+    border-radius: 4em;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+}
+
+#message-box-for-supportpage::-webkit-scrollbar {
+    display: none;
+}
+
+#message-box-for-supportpage {
+    width: 13em;
+    border: 2px solid var(--Black);
+    resize: none;
+}
+
+.centerprofile-button {
+    width: 13em;
+    height: 2.4em;
+    background-color: var(--base);
+}
+
+.form-container-2 {
+    display: flex;
+}
+
+.centerprofile-video-1 {
+    height: 21.5em;
+    width: 38em;
+    margin-top: 5em;
+    border-radius: 10em;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+
+
+}
+
+.centerprofile-3 {
+    height: 41em;
+    width: 42em;
+
+}
+
+.button {
+    padding: 1em 2em;
+    margin-top: 2em;
+    margin-left: 16em;
+    border-radius: 2em;
+    background-color: var(--Orange);
 }

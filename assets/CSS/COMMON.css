@@ -192,22 +192,6 @@ body::-webkit-scrollbar {
 
 }
 
-@keyframes video {
-    0% {
-        transform-style: preserve-3d;
-
-    }
-
-    40% {
-        transform-style: preserve-3d;
-        transform: rotateY(-20deg);
-    }
-
-    100% {
-        transform-style: preserve-3d;
-        transform: rotateY(20deg);
-    }
-}
 
 
 .section2-image-container {

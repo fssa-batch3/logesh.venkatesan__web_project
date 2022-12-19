@@ -29,7 +29,7 @@ body::-webkit-scrollbar {
 /* ABOVE CODE ARE UNIVERSAL CODE */
 .home-nav-nav-container {
     display: flex;
-    gap: 40rem;
+    gap: 37rem;
     background-color: var(--Black);
     position: static;
 
@@ -764,7 +764,7 @@ footer {
 .text-input-2 {
     height: 3em;
     width: 41em;
-
+    margin-top: -5.6em;
     border-radius: 8em;
 }
 
@@ -772,8 +772,9 @@ footer {
     height: 45px;
     width: 45px;
     margin-left: 0.7em;
-    margin-top: -0.4em;
+    margin-top: -5em;
     border: 2px solid var(--Black);
+
     border-radius: 2em;
 }
 

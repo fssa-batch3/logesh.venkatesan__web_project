@@ -684,7 +684,7 @@ body::-webkit-scrollbar {
     .section5-mini-container {
         display: flex;
         justify-content: space-between;
-        background-color: var(--footerup);
+        background-color: #482a78;
         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
     }
@@ -712,7 +712,7 @@ body::-webkit-scrollbar {
     .section5-mini-container {
         display: flex;
         justify-content: space-between;
-        background-color: var(--footerup);
+        background-color: #482a78;
         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
     }
@@ -844,7 +844,7 @@ body::-webkit-scrollbar {
 }
 
 .section5-footer-containter {
-    background-color: rgb(21, 21, 21);
+    background-color: rgb(72, 42, 120);
     height: 1.5em;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
@@ -1329,7 +1329,8 @@ body::-webkit-scrollbar {
 /* FORGOT PASSWORD -1 */
 
 .Forgot {
-    background-color: var(--chat);
+    background-color: #4c3572;
+
     height: 53.78em;
     box-shadow: rgba(94, 88, 88, 0.56) 0px 22px 70px 4px;
 }
@@ -1337,7 +1338,7 @@ body::-webkit-scrollbar {
 
 
 .Forgot1 {
-    background-color: var(--redishorange);
+    background-color: #77d2ae;
     height: 700px;
     width: 400px;
     border-radius: 20px;
@@ -1410,13 +1411,16 @@ a {
 
 /* FORGOT PAGE-2 */
 
+.forgot {
+    text-decoration: none;
+}
 
 .Forgot {
-    background-color: #59e1a1;
+    background-color: #4c3572;
 }
 
 .Forgot1 {
-    background-color: rgb(98, 128, 138);
+    background-color: #77d2ae;
     height: 420px;
     width: 293px;
     border-radius: 20px;

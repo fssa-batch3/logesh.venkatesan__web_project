@@ -12,7 +12,7 @@
 }
 
 body {
-    background-color: pink;
+    background-color: #4c3572;
 }
 
 .id {
@@ -25,6 +25,7 @@ body {
     padding: 12px;
 }
 
+
 .google-mini {
     height: 450px;
     width: 450px;
@@ -32,7 +33,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: grey;
+    background-color: #77d2ae;
     border-radius: 2em;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
@@ -83,6 +84,7 @@ body {
 p {
     padding-left: 1em;
     padding-top: -1em;
+    color: black;
 }
 
 input.google-checkbox {

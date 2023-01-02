@@ -17,11 +17,6 @@
 
 body {
     background-color: pink;
-    opacity: 1.5;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 652px;
-    width: 700px;
 }
 
 ::selection {
@@ -32,6 +27,14 @@ body {
 * {
     text-decoration: none;
     margin: 0px;
+}
+
+.button-first {
+    padding: 9px 41px;
+    background-color: #ff8c00;
+    width: 100%;
+    margin: 0px auto;
+
 }
 
 .loginpage-firstmain {

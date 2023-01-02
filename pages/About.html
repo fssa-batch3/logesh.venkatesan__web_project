@@ -18,29 +18,31 @@
 <body>
     <!-- NAV BAR HOME PAGES -->
     <header>
-        <div class="home-nav-nav-container">
-            <div class="header-nav-logo">
-                <img class="nav-logo" src="../assets/Images/logos/Logo.png" alt="Logo" title="Welcome">
+        <div class="nav-bar">
+            <a href="http://127.0.0.1:5500/index.html">
+                <img class="nav-logo" src="../assets/Images/logos/logo correct.png" alt="Logo" title="Welcome">
+            </a>
+            <button class="navbar-btn">
+                <img src="../assets/Images/icons/menu.png" alt="burger-icon" height="52px" width="52px">
+            </button>
+            <div class="navbar-item hide">
+                <ul id="ul">
+                    <li><a href="http://127.0.0.1:5500/index.html">Home</a></li>
+                    <li><a href="http://127.0.0.1:5500/pages/Specialist.html">Specialist</a></li>
+                    <li><a href="http://127.0.0.1:5500/pages/About.html">About Us</a></li>
+                    <a href="#">
+                        <li><button class="profile-btn btn">My Profile</button></li>
+                    </a>
+                </ul>
             </div>
-            <div class="nav-nav-links">
-                <a href="http://127.0.0.1:5500/index.html" alt="home">
-                    <h3 class="home-nav-link-reuse">Home</h3>
-                </a>
-                <a href="http://127.0.0.1:5500/pages/Specialist.html" alt="specialist">
-                    <h3 class="home-nav-link-reuse">Specialist </h3>
-                </a>
-                <a href="#" alt="aboutus">
-                    <h3 class="home-nav-link-reuse">About Us</h3>
-                </a>
-                <a class="btn-link-nav-login" href="http://127.0.0.1:5500/pages/LOGIN.HTML" alt="login">
-                    <button class="btn-reuse-login"><span><img class="button-img-now"
-                                src="../assets/Images/Banner Image/susi dr.png" alt=""></span>
-                        <p class="button-para-now">Susikumar</p>
-                    </button>
-                </a>
+            <!-- below script is used for nav bar reative burger button -->
+            <script>
+                document.querySelector(".navbar-btn").onclick = function () {
+                    document.querySelector(".navbar-item").classList.toggle("hide");
+                }
+            </script>
+            <!-- below script is used for nav bar reative burger button -->
 
-
-            </div>
         </div>
     </header>
     <!-- ABOVE CODE NAV BAR ILL COMPLETED -->

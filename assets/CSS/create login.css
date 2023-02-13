@@ -16,7 +16,7 @@
 }
 
 body {
-    background-color: #4c3572;
+    background-color: #845ec2;
 }
 
 ::selection {
@@ -27,6 +27,10 @@ body {
 * {
     text-decoration: none;
     margin: 0px;
+}
+
+button {
+    cursor: pointer;
 }
 
 .button-first {
@@ -47,7 +51,6 @@ body {
     border-radius: 30px;
     background-color: #77d2ae;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-    border: 5px solid white;
 
 }
 

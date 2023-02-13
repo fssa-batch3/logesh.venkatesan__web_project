@@ -12,7 +12,11 @@
 }
 
 body {
-    background-color: #4f3972;
+    background-color: #845ec2;
+}
+
+button {
+    cursor: pointer;
 }
 
 .id {
@@ -28,7 +32,7 @@ body {
 .google-mini {
     height: 450px;
     width: 450px;
-    border: 5px solid #e4e4e2;
+
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/CSS/CommonProfile.css" />
+
+    <title>My Profile</title>
+
+</head>
+<style>
+    input::placeholder {
+        color: rgb(188, 188, 188);
+
+    }
+</style>
+
+<body class="main-parent">
+    <div class="containerOfHole">
+
+        <h1>User<span>Details</span></h1>
+        <form class="containerOfMini" id="form0">
+
+            <input class="input" id="fname" placeholder="First Name" type="text" disabled />
+            <input class="input" id="mname" placeholder="Middle Name" type="text" disabled />
+            <input class="input" id="Lname" placeholder="Last Name" type="text" disabled />
+            <input class="input" id="email" placeholder="E-mail " type="text" disabled />
+            <input class="input" id="phnumber" placeholder="Phone Number" type="text" disabled />
+            <input class="input" id="age" placeholder="Age" type="text" disabled />
+            <input class="input" type="text" placeholder="Password" id="password" minlength="8" required disabled />
+            <button type="submit" class="btn">Edit</button>
+            <button type="submit" class="btn">Delete Account</button>
+        </form>
+    </div>
+    <script>
+        let user_data = JSON.parse(window.localStorage.getItem("user_data"));
+        document.getElementById("fname").value = user_data[0]["fname"];
+
+        document.getElementById("Lname").value = user_data[0]["Lname"];
+        document.getElementById("email").value = user_data[0]["email"];
+        document.getElementById("phnumber").value = user_data[0]["phnumber"];
+        document.getElementById("password").value = user_data[0]["password"];
+        document.getElementById("cpassword").value = user_data[0]["cpassword"];
+    </script>
+</body>
+
+</html>

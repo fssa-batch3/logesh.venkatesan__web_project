@@ -9,7 +9,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,500&family=Lobster&family=Open+Sans&family=Outfit:wght@500&family=Rajdhani:wght@300&family=Rubik+Gemstones&display=swap');
 
+button {
+    cursor: pointer;
+}
 
+.card1 {
+    background-color: #e4e3e5;
+    margin: auto;
+    padding: 2em 5em;
+    width: 30em;
+}
+
+
+
+
+.mini-img-1 {
+    display: flex;
+    justify-content: center;
+    margin: 1em auto;
+}
 
 :root {
     --Orange: #F3A94D;
@@ -29,19 +47,6 @@
 body::-webkit-scrollbar {
     display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ABOVE CODE NAV BAR ILL COMPLETED */
 
@@ -71,11 +76,23 @@ body::-webkit-scrollbar {
 
     #mini-container-1 {
         margin-left: 32em;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
     }
 
+    .mini-img-1 {
+        height: 24em;
+        width: 21em;
+        border-radius: 2em;
+        border: 1px solid whitesmoke;
+    }
 
-
-
+    #card {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: space-around;
+        padding-top: 2em;
+    }
 }
 
 
@@ -85,11 +102,19 @@ body::-webkit-scrollbar {
         align-items: center;
         flex-direction: column;
         gap: 1em;
-        overflow-y: scroll;
+
         padding-left: 1.2em;
         padding-right: 3em;
         margin-top: 5em;
         margin-bottom: 0em;
+    }
+
+    #card {
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        justify-content: space-around;
+        padding-top: 2em;
     }
 }
 

@@ -5,83 +5,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/CSS/create login.css">
-
-    <title>BYE | Burst Your Emotions </title>
+    <link rel="stylesheet" href="../assets/CSS/CommonProfile.css">
+    <title>SignUp</title>
 </head>
-<!--first pages/ login pages -->
-<div class="loginpage-first">
-    <div class="loginpage-firstmain">
-        <div class="firstpage-flex">
-            <img alt="Logo" class="img-logo" src="../assets/Images/logos/Logo.png">
-        </div>
-        <div class="loginpage-mini">
 
-            <div class="loginpages-flexrow">
-                <span class="flex-one"><a href="http://127.0.0.1:5500/codes/login%20with%20google.html"> <img
-                            alt="facebook-logo" class="first-img"
-                            src="../assets/Images/icons/icons8-facebook-64.png"></a>
+<body class="main-parent">
+    <div class="containerOfHole">
 
-                    <p class="par1">
-                        <b><a href="http://127.0.0.1:5500/codes/login%20with%20google.html"> Continue With
-                                Google</a></b>
-                    </p>
-                </span>
-                <span class="flex-one"><a href="#"><img class="first-img" alt="google-logo"
-                            src="../assets/Images/icons/icons8-google-48.png"></a>
+        <form class="containerOfMini" id="form">
+            <h1>Sign<span>up</span></h1>
+            <input class="input" id="fname" placeholder="First Name" type="text" pattern="[A-Za-z0-9]{3,32}" required />
+            <span></span>
+            <input class="input" id="Lname" placeholder="Last Name" type="text" pattern="[A-Za-z0-9]{3,32}" required />
+            <span></span>
 
-                    <p class="par1">
-                        <b> <a href="#">Continue With Facebook</a></b>
-                    </p>
-                </span>
-                <button class="button-first"><a href="http://127.0.0.1:5500/pages/login.html">Go Back to Login Pages</a>
-                </button>
-            </div>
-            <div class="loginpages-flexrow-second">
-                <h2 class="head2">
-                    Create Account
-                </h2><br>
+            <input class="input" id="email" placeholder="E-mail id" type="email" required />
+            <span></span>
 
-                <form>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1"><b>First Name :</b></label>
-                        <input type="text" class="form-control" placeholder=".     First Name">
-                    </div><br>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1"><b>Last Name :</b></label>
-                        <input type="text" class="form-control" placeholder="      Last Name">
-                    </div><br>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1"><b>Email id :</b></label>
-                        <input type="email" class="form-control" aria-describedby="emailHelp"
-                            placeholder="     Enter email">
-                    </div><br>
-                    <div class="form-group">
-                        <label aria-label="checkbox" for="exampleInputPassword1"><b>Password :</b></label>
-                        <input type="password" for="checkbox" class="form-control" placeholder="     Password">
-                    </div><br>
+            <input class="input" id="phnumber" placeholder="Phone Number" type="tel" pattern="[0-9]{1,10}" required />
+            <span></span>
+            <input class="input" type="password"
+                title="Password must contain: Minimum 8 characters atleast 1 Alphabet and 1 Number"
+                placeholder="Enter Password" id="password" minlength="8" required
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" />
+            <span></span>
 
-                    <div class="form-check">
-                        <input type="checkbox" aria-label="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="exampleCheck1"><b>Verify It is You.</b></label>
-                        <button type="submit" class="btn-btn-primary">
-                            <a href="http://127.0.0.1:5500/pages/login.html">Submit</a></button>
-                    </div><br>
+            <input class="input" type="password"
+                title="Password must contain: Minimum 8 characters atleast 1 Alphabet and 1 Number"
+                placeholder="Re-Enter Password" id="cpassword" minlength="8" required
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" />
+            <span></span>
 
-
-                </form>
-
-            </div>
-
-
-
-        </div>
+            <button type="submit" class="btn">submit</button>
+        </form>
     </div>
+    <script>
+        let arr = [];
+        let form = document.getElementById("form");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let userdata = {};
+            const fname = document.getElementById("fname").value;
 
-</div>
+            const Lname = document.getElementById("Lname").value;
+            const email = document.getElementById("email").value;
+            const phnumber = document.getElementById("phnumber").value;
+            const password = document.getElementById("password").value;
+            const cpassword = document.getElementById("cpassword").value;
+            userdata["fname"] = fname;
 
-<body>
+            userdata["Lname"] = Lname;
+            userdata["phnumber"] = phnumber;
+            userdata["email"] = email.toLowerCase();
+            userdata["password"] = password;
+            userdata["cpassword"] = cpassword;
+            if (userdata["password"] === userdata["cpassword"]) {
 
+            }
+            arr.push(userdata);
+            if (window.localStorage.getItem("user") === null) {
+                window.localStorage.setItem("user", JSON.stringify(arr));
+            } else {
+                let local = window.localStorage.getItem("user");
+                let json = JSON.parse(local);
+                json.push(userdata);
+                window.localStorage.setItem("user", JSON.stringify(json));
+            }
+            window.location.href = "./login.html";
+        });
+    </script>
 </body>
 
 </html>

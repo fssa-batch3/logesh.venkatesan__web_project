@@ -2,82 +2,66 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/CSS/Login.css">
-    <title>BYE | Burst Your Emotions </title>
-    <style>
-        body {
-            background-color: #845f5f;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/CSS/CommonProfile.css" />
+    <title>Login</title>
+
 </head>
+<style>
+    .containerOfMini {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0em;
+    }
+</style>
 
-<body>
-    <div clas="loginpage-first-cont">
-        <!--first pages/ login pages -->
-        <div class="loginpage-first">
-            <div class="loginpage-firstmain">
-                <div class="firstpage-flex">
-                    <img class="img-logo" alt="Logo" src="../assets/Images/logos/Logo.png">
-                </div>
-                <div class="loginpage-mini">
+<body class="main-parent">
+    <div class="containerOfHole">
+        <form class="containerOfMini" id="form">
+            <h1>Login<span>Account</span></h1>
 
-                    <div class="loginpages-flexrow">
-                        <span class="flex-one"><a href="http://127.0.0.1:5500/codes/login%20with%20google.html"> <img
-                                    class="first-img" alt="google"
-                                    src="../assets/Images/Banner Image/google icon.png"></a>
+            <input class="input" type="email" id="email" placeholder="E-mail" required />
 
-                            <p class="par1">
-                                <b><a href="http://127.0.0.1:5500/pages/login%20with%20google.html"> Continue With
-                                        Google</a></b>
-                            </p>
-                        </span>
-                        <span class="flex-two"><a href="http://127.0.0.1:5500/codes/facebook%20login.html"><img
-                                    class="first-img" alt="Facebook"
-                                    src="../assets/Images/Banner Image/facebook.png"></a>
-
-                            <p class="par1">
-                                <b> <a href="http://127.0.0.1:5500/pages/facebook%20login.html">Continue With
-                                        Facebook</a></b>
-                            </p>
-                        </span>
-                        <button class="button-first"><a
-                                href="http://127.0.0.1:5500/pages/create%20account%20page.html">Create
-                                Account</a></button>
-
-                    </div>
-                    <div class="loginpages-flexrow-second">
-                        <h2 class="head2">
-                            Customer Login
-                        </h2><br>
-
-                        <form action="http://127.0.0.1:5500/index.html/Home.html">
-                            <label for="fname"><b>Email Id:</b></label>
-                            <input placeholder="Enter Email " type="text" id="fname1" name="fname"><br><br>
-                            <label for="lname"><b>Password:</b></label>
-                            <input placeholder="Enter Password" type="text" id="fname" name="lname">
-                            <a href="http://127.0.0.1:5500/pages/FORGOT.html">
-                                <P class="forgot"><u> Forgot Password</u> </P>
-                            </a><br><br>
-
-                            <button class="button-first">
-                                <a href="http://127.0.0.1:5500/index.html">Submit</a></button>
-                        </form>
-                        <p class="term"><a href="http://127.0.0.1:5500/pages/Terms%20and%20Conditions.html">Terms
-                                And Conditions</a></p>
-                    </div>
-
-
-
-                </div>
-            </div>
-
-        </div>
+            <input class="input" type="password" id="password" minlength="8" placeholder="Password" required />
+            <button type="submit" class="btn">submit</button>
+        </form>
     </div>
 
-
+    <script>
+        let userlogin = document.getElementById("form");//get value by id 
+        userlogin.addEventListener("submit", (event) => {//listen event by eventlistener
+            event.preventDefault();//prevent page by refresh
+            let logn = [];//create a empty array
+            let normaldata = JSON.parse(localStorage.getItem("user"));//store our localstorage to defaultdata variable 
+            console.log(normaldata);//for verification
+            let email = document.getElementById("email").value;//store email to email variable
+            let password = document.getElementById("password").value;//store password to password variable
+            console.log(email, password);
+            let isMatch = false;
+            for (let i = 0; i < normaldata.length; i++) {
+                if (
+                    email === normaldata[i].email && //here if equal push data defaultdata
+                    password == normaldata[i].password
+                ) {
+                    isMatch = true;
+                    logn.push(normaldata[i]);//push into log
+                    window.localStorage.setItem("user_data", JSON.stringify(logn));//ingha namma json kulla string aah anupurom 
+                    break;
+                } else {
+                    isMatch = false;
+                }
+            }
+            if (isMatch === true) {
+                alert("success");//match achuna success nu varum 
+                window.location.href = "profile.html";//redirect panni profile page ku poguthu
+            } else {
+                alert("failed");//match agalena success nu varum 
+                window.location.href = "login.html";
+            }
+        });
+    </script>
 </body>
 
 </html>

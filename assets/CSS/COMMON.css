@@ -12,6 +12,7 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+
 :root {
     --Orange: #F3A94D;
     --Black: #000000;
@@ -56,7 +57,9 @@ body::-webkit-scrollbar {
     .profile-btn {
         padding: 10px 12px;
         border-radius: 2em;
-        background-color: skyblue;
+        background-color: #00c9a7;
+        border: none;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
     }
 
@@ -187,7 +190,8 @@ body::-webkit-scrollbar {
 /* ABOVE CODE NAV BAR ILL COMPLETED */
 @media(min-width:720px) {
     .section1-video {
-        border: 5px solid var(--Black);
+        border: 2px solid var(--Black);
+        border-left: 0px;
         box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
         border-top-right-radius: 270px;
         border-bottom-right-radius: 270px;
@@ -225,15 +229,12 @@ body::-webkit-scrollbar {
         font-size: 1em;
         perspective: 300deg 200deg;
         font-weight: bold;
-        background-color: var(--Orange);
+        background-color: #ff8c00;
         cursor: pointer;
         box-shadow: rgba(186, 188, 76, 0.07) 0px 1px 2px, rgba(168, 235, 12, 0.07) 0px 2px 4px, rgba(215, 157, 11, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
     }
 
-    .btn-reuse-exploremore:active {
-        background-color: orangered;
-        color: grey;
-    }
+
 }
 
 /* above code for desktop section-1 */
@@ -996,10 +997,12 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
 
+
 }
 
 .chatroom-flex-container {
     display: flex;
+    padding: 4.4px;
 
 
 
@@ -1047,6 +1050,7 @@ body::-webkit-scrollbar {
     padding-left: 1.5em;
     padding-bottom: 0.5em;
     margin-left: 2em;
+    margin-top: 0.87em;
     display: flex;
     height: 7%;
     width: 100%;
@@ -1153,7 +1157,7 @@ body::-webkit-scrollbar {
 .text-input-2 {
     height: 3em;
     width: 41em;
-    margin-top: -2.6em;
+    margin-top: -6.6em;
     border-radius: 8em;
 }
 
@@ -1161,7 +1165,7 @@ body::-webkit-scrollbar {
     height: 45px;
     width: 45px;
     margin-left: 0.7em;
-    margin-top: -2.6em;
+    margin-top: -5.6em;
     border: 2px solid var(--Black);
 
     border-radius: 2em;
@@ -1254,7 +1258,7 @@ body::-webkit-scrollbar {
     height: 46em;
     width: 25em;
     background-color: var(--Black);
-    margin-top: -1em;
+    margin-top: 0em;
     align-items: center;
     margin-left: 16em;
 }
@@ -1295,7 +1299,7 @@ body::-webkit-scrollbar {
 /* BYEVIDEO BELOW */
 .profile-img-4 {
     width: 300px;
-    height: 300px;
+    height: 239px;
     border-bottom-left-radius: 2em;
     border-bottom-right-radius: 2em;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
@@ -1329,7 +1333,7 @@ body::-webkit-scrollbar {
 /* FORGOT PASSWORD -1 */
 
 .Forgot {
-    background-color: #4c3572;
+    background-color: #845ec2;
 
     height: 53.78em;
     box-shadow: rgba(94, 88, 88, 0.56) 0px 22px 70px 4px;
@@ -1346,7 +1350,7 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    border: 4px solid black;
+
     margin: 170px auto;
 }
 
@@ -1407,6 +1411,7 @@ input {
 
 a {
     color: black;
+    text-decoration: none;
 }
 
 /* FORGOT PAGE-2 */
@@ -1416,7 +1421,7 @@ a {
 }
 
 .Forgot {
-    background-color: #4c3572;
+    background-color: #845ec2;
 }
 
 .Forgot1 {
@@ -1428,7 +1433,7 @@ a {
     flex-direction: column;
     /* justify-content: space-evenly; */
     align-items: center;
-    border: 4px solid black;
+
     margin: 130px auto;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
@@ -1453,7 +1458,7 @@ input {
 
 .btn-forgot {
     padding: 12px 25px;
-    margin-top: -1em;
+    margin-top: 0.3em;
     background-color: orange;
     color: rgb(255, 255, 255);
     border-radius: 20px;
@@ -1465,14 +1470,20 @@ input {
 
 
 .input {
-    margin-top: -33px;
+    margin-top: 0px;
 }
 
 #img-arr1 {
-    height: 51px;
-    width: 80px;
-    margin-top: 35px;
+    height: 73px;
+    width: 70px;
 
+    margin-top: 26px;
+
+
+}
+
+#forget-p {
+    margin-bottom: -0.1em;
 
 }
 
@@ -1494,6 +1505,7 @@ input {
 
 a {
     color: rgb(3, 3, 3);
+    text-decoration: none;
 }
 
 

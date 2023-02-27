@@ -14,27 +14,27 @@
 
         <form class="containerOfMini" id="form">
             <h1>Sign<span>up</span></h1>
-            <input class="input" id="fname" placeholder="First Name" type="text" pattern="[A-Za-z0-9]{3,32}" required />
-            <span></span>
-            <input class="input" id="Lname" placeholder="Last Name" type="text" pattern="[A-Za-z0-9]{3,32}" required />
-            <span></span>
+            <input class="input" id="fname" placeholder="First Name" type="text" pattern="[A-Za-z]{3,32}" required />
+
+            <input class="input" id="mname" placeholder="Middle Name" type="text" pattern="[A-Za-z]{3,32}" required />
+            <input class="input" id="Lname" placeholder="Last Name" type="text" pattern="[A-Za-z]{3,32}" required />
+
 
             <input class="input" id="email" placeholder="E-mail id" type="email" required />
-            <span></span>
 
-            <input class="input" id="phnumber" placeholder="Phone Number" type="tel" pattern="[0-9]{1,10}" required />
-            <span></span>
+            <input class="input" id="phnumber" placeholder="Phone Number" type="number" pattern="[0-9]{1,10}"
+                required />
+            <input class="input" id="age" placeholder="Age" type="number" pattern="[0-9]{1,2}" required />
             <input class="input" type="password"
                 title="Password must contain: Minimum 8 characters atleast 1 Alphabet and 1 Number"
                 placeholder="Enter Password" id="password" minlength="8" required
                 pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" />
-            <span></span>
+
 
             <input class="input" type="password"
                 title="Password must contain: Minimum 8 characters atleast 1 Alphabet and 1 Number"
                 placeholder="Re-Enter Password" id="cpassword" minlength="8" required
                 pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" />
-            <span></span>
 
             <button type="submit" class="btn">submit</button>
         </form>
@@ -46,23 +46,27 @@
             event.preventDefault();
             let userdata = {};
             const fname = document.getElementById("fname").value;
-
+            const mname = document.getElementById("mname").value;
             const Lname = document.getElementById("Lname").value;
             const email = document.getElementById("email").value;
             const phnumber = document.getElementById("phnumber").value;
+            const age = document.getElementById("age").value;
             const password = document.getElementById("password").value;
             const cpassword = document.getElementById("cpassword").value;
+            let id = self.crypto.randomUUID();
             userdata["fname"] = fname;
-
+            userdata["mname"] = mname;
             userdata["Lname"] = Lname;
             userdata["phnumber"] = phnumber;
+            userdata["age"] = age;
             userdata["email"] = email.toLowerCase();
             userdata["password"] = password;
             userdata["cpassword"] = cpassword;
+            userdata.id = id;
             if (userdata["password"] === userdata["cpassword"]) {
-
+                arr.push(userdata);
             }
-            arr.push(userdata);
+
             if (window.localStorage.getItem("user") === null) {
                 window.localStorage.setItem("user", JSON.stringify(arr));
             } else {
@@ -77,3 +81,13 @@
 </body>
 
 </html>
+
+<!-- 1.first step of js is n this code is create a empty array 
+2.next get value from form by id
+3. create s function for event listening 
+4. create a object for push user data
+5. get value from input 
+6. create a unique id for user 
+7. assign value to key 
+8. write a if/else condition to store data in DB 
+9.alert for successful or failed   -->

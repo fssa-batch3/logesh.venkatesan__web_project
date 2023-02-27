@@ -19,6 +19,10 @@ body {
     background-color: #845ec2;
 }
 
+button {
+    cursor: pointer;
+}
+
 .id {
     display: flex;
     margin-left: 60px;

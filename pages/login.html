@@ -40,18 +40,16 @@
             let password = document.getElementById("password").value;//store password to password variable
             console.log(email, password);
             let isMatch = false;
-            for (let i = 0; i < normaldata.length; i++) {
-                if (
-                    email === normaldata[i].email && //here if equal push data defaultdata
-                    password == normaldata[i].password
-                ) {
-                    isMatch = true;
-                    logn.push(normaldata[i]);//push into log
-                    window.localStorage.setItem("user_data", JSON.stringify(logn));//ingha namma json kulla string aah anupurom 
-                    break;
-                } else {
-                    isMatch = false;
-                }
+            const matchedData = normaldata.find(data => {
+                return email === data.email && password === data.password;
+            });
+
+            if (matchedData) {
+                isMatch = true;
+                logn.push(matchedData);
+                window.localStorage.setItem("user_data", JSON.stringify(logn));
+            } else {
+                isMatch = false;
             }
             if (isMatch === true) {
                 alert("success");//match achuna success nu varum 

@@ -15,6 +15,10 @@
 
 }
 
+button {
+    cursor: pointer;
+}
+
 body {
     background-color: #845ec2;
 }

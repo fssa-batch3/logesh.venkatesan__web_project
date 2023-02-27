@@ -5,6 +5,9 @@ body {
     text-decoration: none;
 
 }
+button{
+    cursor: pointer;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,500&family=Lobster&family=Open+Sans&family=Outfit:wght@500&family=Rajdhani:wght@300&family=Rubik+Gemstones&display=swap');
 

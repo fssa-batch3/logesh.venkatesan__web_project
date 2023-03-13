@@ -5,7 +5,8 @@ body {
     text-decoration: none;
 
 }
-button{
+
+button {
     cursor: pointer;
 }
 
@@ -946,6 +947,7 @@ body::-webkit-scrollbar {
     /* margin-left: -   26em; */
     margin-top: 1.3em;
     display: flex;
+    position: relative;
 
     /* THAT MARGIN */
 
@@ -999,6 +1001,8 @@ body::-webkit-scrollbar {
 .chatroom-div-container {
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    overflow: hidden;
 
 
 }
@@ -1047,7 +1051,14 @@ body::-webkit-scrollbar {
     width: 270px;
 }
 
+.addIcon {
+    height: 64px;
+    width: 64px;
+    bottom: 0;
+    left: 10em;
+    position: absolute;
 
+}
 
 .chatroom-chatside-div-nav {
     padding-left: 1.5em;

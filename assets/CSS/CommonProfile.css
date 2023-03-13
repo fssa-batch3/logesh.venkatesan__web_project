@@ -46,11 +46,16 @@ h1 span {
 
 }
 
-.containerOfHole {
-    backdrop-filter: blur(4px);
-    padding: 3em;
-    border: 1px solid black;
-    border-radius: 1em;
+.editbtn,
+.detailsbtn {
+    padding: 8px 20px;
+    margin: 0px auto;
+    background-color: coral;
+    margin: 20px 5em;
+}
+
+.editbtn {
+    margin-left: 7em;
 }
 
 .containerOfMini {

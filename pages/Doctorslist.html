@@ -71,7 +71,7 @@
 
                         let Name = document.createElement("h2");
                         Name.setAttribute("class", "min-heading-2");
-                        Name.innerText = "Dr." + doctor[i]['name'];
+                        Name.innerText = "Dr. " + doctor[i]['name'];
                         card.append(Name);
                         // console.log(Name);
 
@@ -113,6 +113,7 @@
                     Edit.forEach(function (findId) {
                         findId.addEventListener("click", function () {
                             let parent = this.closest(".card")
+
                             const Id = parent.querySelector(".editbtn").getAttribute("id")
                             console.log(Id);
                             localStorage.setItem("uuid", JSON.stringify(Id));
@@ -128,18 +129,23 @@
                             if (confirm("Are you sure?")) {
                                 let jsonData = JSON.parse(window.localStorage.getItem("doctordata"));
                                 let card = this.closest(".card");
-                                let indexOf = jsonData.indexOf(card);
+                                let id = card.querySelector(".editbtn").getAttribute("id");
+                                // assuming you set a data-id attribute on the card element
+                                console.log(id);
+
+
+                                let indexOf = jsonData.findIndex(obj => obj.id === id);
                                 console.log(indexOf);
-                                console.log("its working");
                                 jsonData.splice(indexOf, 1);
-                                // Save updated data to local storage
+                                // // Save updated data to local storage
                                 window.localStorage.setItem("doctordata", JSON.stringify(jsonData));
-                                // Redirect to Doctorslist page
+                                // // Redirect to Doctorslist page
                                 window.location.href = "./Doctorslist.html";
                             }
                         });
-
                     });
+
+
 
 
 

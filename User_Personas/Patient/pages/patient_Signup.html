@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./patient_signup.css">
+    <title>Patient Login | FreshBYE</title>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="logo">
+            <a href="#"><span>Fresh</span>BYE</a>
+        </div>
+
+    </div>
+    <div id="HoleCard">
+        <div id="ImageContainer">
+            <img src="../assests/images/Patient_signup-bg.jpg" alt="DoctorImg" id="LoginImg">
+        </div>
+        <div id="form">
+            <form action="#" id="form_container" class="container">
+                <h2 id="titleofForm">Patient's <span>SignUP</span></h2>
+                <input type="text" id="Username" placeholder="Enter User Name" pattern="[A-Za-z]{3,32}" required>
+                <input type="email" placeholder="Enter Your Email" id="email" required>
+                <input type="url" name="profile pic" id="Profile" placeholder="Enter profile URL" required>
+                <input type="textarea" placeholder="Enter What's your difficulty Is" id="aboutpat">
+                <input type="password" name="cpass"
+                    title="Password must contain: Minimum 8 characters atleast 1 Alphabet and 1 Number"
+                    placeholder="Enter Password" id="password" minlength="8" required
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" id="password">
+                <input type="password" name="pass"
+                    title="Password must contain: Minimum 8 characters atleast 1 Alphabet and 1 Number"
+                    placeholder="Confirm Password" id="cpassword" minlength="8" required
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" id="confirmPassword">
+                <button>Login Now</button>
+                <small id="createacc">I Already Have a Account <span><a href="./index.html">Login
+                            Now</a></span></small>
+            </form>
+        </div>
+    </div>
+    <script>
+        let arr = [];
+        let form = document.getElementById("form_container");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let userdata = {};
+            const Username = document.getElementById("Username").value;
+            const Email = document.getElementById("email").value;
+            const Profile = document.getElementById("Profile").value;
+            const Description = document.getElementById("aboutpat").value;
+            const password = document.getElementById("password").value;
+            const cpassword = document.getElementById("cpassword").value;
+            let id = self.crypto.randomUUID();
+            userdata["Username"] = Username;
+            userdata["email"] = Email;
+            userdata["Profile"] = Profile;
+            userdata["aboutpat"] = Description;
+            userdata["password"] = password;
+            userdata["cpassword"] = cpassword;
+            userdata.id = id;
+            if (userdata["password"] === userdata["cpassword"]) {
+                arr.push(userdata);
+            } else {
+                alert("Given Passwords Are Not Match")
+            }
+
+            if (window.localStorage.getItem("Patient_Detail") === null) {
+                window.localStorage.setItem("Patient_Detail", JSON.stringify(arr));
+            } else {
+                let local = window.localStorage.getItem("Patient_Detail");
+                let json = JSON.parse(local);
+                json.push(userdata);
+                window.localStorage.setItem("Patient_Detail", JSON.stringify(json));
+            }
+            window.location.href = "./index.html";
+        });
+    </script>
+</body>
+
+</html>

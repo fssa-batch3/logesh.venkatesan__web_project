@@ -32,9 +32,9 @@
             <input class="input" id="age" placeholder="Age" type="text" disabled />
             <input class="input" type="text" placeholder="Password" id="password" minlength="8" required disabled />
             <button type="submit" id="edit" class="btn" onclick="editdata(event)">Edit</button>
-
+            <button type="submit" class="btn" onclick="deldata()">Delete Account</button>
         </form>
-        <button type="submit" class="btn" onclick="deldata()">Delete Account</button>
+
 
     </div> <a href=></a>
     <script>
@@ -68,7 +68,7 @@
                 user_data.splice(indexOfuser, 1);
 
                 localStorage.setItem('user_data', JSON.stringify(user_data));
-                location.href = "../pages/login.html"
+                location.href = "/pages/login.html"
             }
         }
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYE | Forgot Password</title>
+    <link rel="stylesheet" href="../assets/CSS/COMMON.css">
+</head>
+
+<body>
+    <div class="Forgot">
+        <div class="arrow">
+            <a href="http://127.0.0.1:5500/pages/login.html"> <img id="img-arr1" alt="backbutton"
+                    src="../assets/Images/icons/icons8-back-arrow-96.png"></a>
+            <p class="skip"><a class="skip1" href="http://127.0.0.1:5500/pages/login.html">Back</a></p>
+
+        </div>
+        <div class="Forgot1">
+            <form action="#">
+                <img alt="logo" src="../assets/Images/logos/logo correct.png">
+                <h2 class="forgot-1">Forgot Password</h2>
+
+                <label for="inputemail" class="email">Enter Email</label><br>
+                <input type="email" id="Email" class="input" name="email" placeholder="eg. logesh@gmail.com" /><br>
+                <button type="tel" id="Otp" onclick="Getdata()" class="btn-forgot">Get OTP</button>
+
+
+            </form>
+        </div>
+    </div>
+    <script>
+        function Getdata() {
+            const email = document.getElementById("Email").value
+            console.log(email)
+            localStorage.setItem("user_email", email)
+            window.location.href = "../index.html"
+        }
+    </script>
+
+</body>
+
+</html>

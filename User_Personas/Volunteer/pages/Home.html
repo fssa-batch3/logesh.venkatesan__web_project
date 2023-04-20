@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home |FreshBYE</title>
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="./Home.css">
+
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--<title>Dashboard Sidebar Menu</title>-->
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!--<img src="logo.png" alt="">-->
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Fresh<Span>BYE</Span></span>
+                    <span class="profession">Open Your Mind</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle' style="color:black;"></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Profile.png" alt="Profile_icon">
+                            <span class="text nav-text">My Profile</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Doctor.png" alt="Doctor_icon">
+                            <span class="text nav-text">Doctor</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Volunteer.png" alt="Volunteer">
+                            <span class="text nav-text">Volunteer</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Chat.png" alt="Chat_icon">
+                            <span class="text nav-text">Chats</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-heart icon'></i>
+                            <span class="text nav-text">Likes</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Appointment.png" alt="Appointment_icon">
+                            <span class="text nav-text">Appointments</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+                <!-- below code for dark theme toggle button-->
+                <!-- <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span> -->
+            </div>
+            </li>
+
+        </div>
+        </div>
+
+    </nav>
+
+    <section id="home" class="home">
+        <div id="title" class="text">Posts</div>
+        <div id="post-section">
+            <div id="solo-post">
+                <div id="profile-post">
+                    <img src="../assests/Images/Profile.png" alt="Profile">
+                    <h2 id="profile-name">Logesh Venkatesan</h2>
+                </div>
+                <video controls>
+                    <source src="https://youtu.be/HeRFIEkSJ10">
+
+                </video>
+                <h2 id="discription_title">#Dada_movie</h2>
+                <p id="description">
+                    Above Scene is mentioned how to lead life after breakup
+                </p>
+            </div>
+        </div>
+        <div id="post-section">
+            <div id="solo-post">
+                <div id="profile-post">
+                    <img src="../assests/Images/Profile.png" alt="Profile">
+                    <h2 id="profile-name">Logesh Venkatesan</h2>
+                </div>
+                <video controls>
+                    <source src="https://youtu.be/HeRFIEkSJ10">
+
+                </video>
+                <h2 id="discription_title">#Vallavan_movie</h2>
+                <p id="description">
+                    Above Scene is mentioned how to lead life after commitment
+                </p>
+            </div>
+        </div>
+        <div class="Add_post">
+            <a href="./New_Post.html"><button class="post">New
+                    Post</button></a>
+        </div>
+    </section>
+
+    <script>
+        const body = document.querySelector('body'),
+            sidebar = body.querySelector('nav'),
+            toggle = body.querySelector(".toggle"),
+            searchBtn = body.querySelector(".search-box"),
+            modeSwitch = body.querySelector(".toggle-switch"),
+            modeText = body.querySelector(".mode-text");
+
+
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        })
+
+        searchBtn.addEventListener("click", () => {
+            sidebar.classList.remove("close");
+        })
+        //card creating process
+
+        let PostedData = JSON.parse(localStorage.getItem("PostedData"));
+        console.log(PostedData);
+
+        for (let i = 0; i < PostedData.length; i++) {
+            let parent = document.createElement("div")
+            parent.setAttribute("id", "post-section");
+
+            let card = document.createElement("div");
+            card.setAttribute("id", "solo-post");
+            console.log(card);
+
+            let card1 = document.createElement("div");
+            card1.setAttribute("id", "profile-post");
+            console.log(card1);
+
+            let img = document.createElement("img");
+            img.setAttribute("src", '../assests/Images/Profile.png');
+            card1.append(img);
+            // console.log(img);
+
+            let Name = document.createElement("h2");
+            Name.setAttribute("id", "profile-name");
+            Name.innerText = "Dr. " + "Logesh Venkatesan";
+            card1.append(Name);
+            card.append(card1)
+            // console.log(Name);
+
+
+            let Video = document.createElement("video");
+            Video.setAttribute("controls", "");
+            card.append(Video)
+            console.log(card1);
+
+            // console.log(email);
+
+            let source = document.createElement("Source");
+            source.setAttribute("src", PostedData[i]["Video_URL"]);
+            Video.append(source);
+
+            // console.log(mobile);
+            let Title = document.createElement("h2");
+            Title.setAttribute("id", "discription_title");
+            Title.innerText = PostedData[i]["Video_title"];
+            card.append(Title);
+
+            let Description = document.createElement("p");
+            Description.setAttribute("id", "description");
+            Description.innerText = "@" + PostedData[i]["Video_Description"];
+            card.append(Description);
+            parent.append(card)
+            console.log(card1);
+
+            // console.log(button1);
+
+            let container = document.getElementById("home");
+            container.append(parent);
+        }
+
+        // modeSwitch.addEventListener("click", () => {
+        //     body.classList.toggle("dark");
+
+        //     if (body.classList.contains("dark")) {
+        //         modeText.innerText = "Light mode";
+        //     } else {
+        //         modeText.innerText = "Dark mode";
+
+        //     }
+        // });
+    </script>
+
+</body>
+
+</html>

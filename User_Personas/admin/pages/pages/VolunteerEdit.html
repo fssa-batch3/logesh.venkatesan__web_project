@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/CSS/CommonProfile.css" />
+    <title>Edit Volunteer</title>
+</head>
+
+<body class="main-parent">
+    <div class="containerOfHole">
+        <form class="containerOfMini" id="form">
+            <h1>Edit<span>Volunteer</span></h1>
+            <input class="input" id="imgurl" placeholder="Enter URL" type="url" required />
+            <input class="input" id="name" placeholder="Enter Name" type="text" pattern="[A-Za-z]{3,32}" required />
+            <input class="input" id="email" placeholder="Enter Email" type="email" required />
+            <input class="input" id="phnumber" placeholder="Phone Number" type="number" pattern="[0-9]{1,10}"
+                required />
+            <button type="submit" class="btn">submit</button>
+        </form>
+    </div>
+    <script>
+        let VoluneerId = JSON.parse(localStorage.getItem("UniqueID"));
+        console.log(VoluneerId);
+        let VoluneerData = JSON.parse(localStorage.getItem("Volunteerdata"));
+        console.log(VoluneerData);
+
+        // let currentDoctor = doctorData.find((id) => doctorData.id === doctorId);
+        let currentVolunteer = VoluneerData.find(function (cal) {
+            let id = cal["id"];
+            if (VoluneerId === id) {
+                return true;
+            }
+        });
+
+        // console.log(currentDoctor);
+
+        document.getElementById("imgurl").value = currentVolunteer.imgurl;
+        document.getElementById("name").value = currentVolunteer.name;
+        document.getElementById("email").value = currentVolunteer.email;
+        document.getElementById("phnumber").value = currentVolunteer.phnumber;
+
+        let form = document.getElementById("form");
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let currentVolunteer = VoluneerData.find(function (cal) {
+                let id = cal["id"];
+                if (VoluneerId === id) {
+                    return true;
+                }
+            });
+            let imgurl = document.getElementById("imgurl").value;
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phnumber = document.getElementById("phnumber").value;
+            console.log(currentVolunteer);
+            currentVolunteer["imgurl"] = imgurl;
+            currentVolunteer["name"] = name;
+            currentVolunteer["email"] = email;
+            currentVolunteer["phnumber"] = phnumber;
+            localStorage.setItem("Volunteerdata", JSON.stringify(VoluneerData));
+            window.location.href = "./VolunteersList.html"
+        });
+    </script>
+</body>

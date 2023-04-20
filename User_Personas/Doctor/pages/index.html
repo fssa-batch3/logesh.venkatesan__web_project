@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Style.css">
+    <title>Doctor Login | FreshBYE</title>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="logo">
+            <a href="#"><span>Fresh</span>BYE</a>
+        </div>
+
+    </div>
+    <div id="HoleCard">
+        <div id="ImageContainer">
+            <img src="../assests/Images/Login_Page_Doc_img.png" alt="DoctorImg" id="LoginImg">
+        </div>
+        <div id="form">
+            <form action="#" id="form_container" class="container">
+                <h2 id="titleofForm">Doctor's <span>Login</span></h2>
+                <input type="email" placeholder="Enter Your Email" id="email" required>
+                <input type="password" name="cpass" placeholder="Enter Password" id="password">
+
+                <button>Login Now</button>
+                <small id="createacc">I Don't Have any Account? <span><a href="./Doctor_Signup.html">Create an
+                            Account</a></span></small>
+            </form>
+        </div>
+    </div>
+    <script>
+        let Patient_login = document.getElementById("form_container");//get value by id 
+        Patient_login.addEventListener("submit", (event) => {//listen event by eventlistener
+            event.preventDefault();//prevent page by refresh
+            let logn = [];//create a empty array
+
+            let normaldata = JSON.parse(window.localStorage.getItem("Doctor_category"))//for verification
+            console.log(normaldata);
+            let email = document.getElementById("email").value;//store email to email variable
+            let password = document.getElementById("password").value;//store password to password variable
+            let id = ""; console.log(email, password);
+            let isMatch = false;
+            const matchedData = normaldata.find(data => {
+                id = data.id;
+                return email === data.Email && password === data.Password;
+            });
+
+            if (matchedData) {
+                isMatch = true;
+
+                window.localStorage.setItem("Doctor's_login", JSON.stringify(id))
+            } else {
+                isMatch = false;
+            }
+            if (isMatch === true) {
+                alert("successfully logined");//match achuna success nu varum 
+                window.localStorage.setItem("Current_User_id", email)
+                window.location.href = "../pages/Home.html";//redirect panni profile page ku poguthu
+            } else {
+                alert("Invalid Email or Invaid password");//match agalena success nu varum 
+                window.location.href = "../pages/index.html";
+            }
+        });
+    </script>
+</body>
+
+</html>

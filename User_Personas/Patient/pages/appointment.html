@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./appointment.css">
+    <title>New Post</title>
+</head>
+
+<body>
+    <div class="containerOfHole">
+
+        <form class="containerOfMini" id="form">
+            <h1>Add<span> Appointment</span></h1>
+            <input class="input" id="Problem" placeholder="Problem I am Facing" type="text" required />
+            <input class="input" id="name" placeholder="Enter your Nickname" type="text" required />
+            <input class="input" id="email" placeholder="email" type="email" required />
+            <input class="input" id="Gender" placeholder="Gender" type="Select" />
+            <input class="input" id="time" placeholder="Description about video" type="time" /><br>
+            <input class="input" id="Date" placeholder="Description about video" type="date" /><br>
+
+            <button type="submit" class="btn">Book Now</button>
+        </form>
+    </div>
+    <script>
+        let arr = [];
+        let form = document.getElementById("form");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let postdata = {};
+            const problems = document.getElementById("Problem").value;
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const gender = document.getElementById("Gender").value;
+            const time = document.getElementById("time").value;
+            const date = document.getElementById("Date").value;
+
+            let id = self.crypto.randomUUID();
+
+            postdata["problems"] = problems;
+            postdata["Nick Name"] = problems;
+            postdata["Email"] = problems;
+            postdata["gender"] = gender;
+            postdata["time"] = time;
+            postdata["date"] = date;
+            postdata["appointment_status"] = "";
+            postdata.appointmentid = id;
+
+            if (window.localStorage.getItem("appointments") === null) {
+                arr.push(postdata)
+                window.localStorage.setItem("appointments", JSON.stringify(arr));
+                alert("thank to add a appointment")
+
+            } else {
+                let local = window.localStorage.getItem("appointments");
+                let json = JSON.parse(local);
+                json.push(postdata);
+                window.localStorage.setItem("appointments", JSON.stringify(json));
+                alert("thank to add a appointment")
+            }
+            window.location.href = "./Home.html";
+        });
+    </script>
+</body>
+<a href=""></a>
+
+</html>

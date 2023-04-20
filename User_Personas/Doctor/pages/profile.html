@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | FreshBYE</title>
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="./profile.css">
+
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--<title>Dashboard Sidebar Menu</title>-->
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!--<img src="logo.png" alt="">-->
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Fresh<Span>BYE</Span></span>
+                    <span class="profession">Open Your Mind</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle' style="color:black;"></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Profile.png" alt="Profile_icon">
+                            <span class="text nav-text">My Profile</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Doctor.png" alt="Doctor_icon">
+                            <span class="text nav-text">Doctor</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Volunteer.png" alt="Volunteer">
+                            <span class="text nav-text">Volunteer</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Chat.png" alt="Chat_icon">
+                            <span class="text nav-text">Chats</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-heart icon'></i>
+                            <span class="text nav-text">Likes</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Appointment.png" alt="Appointment_icon">
+                            <span class="text nav-text">Appointments</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+                <!-- below code for dark theme toggle button-->
+                <!-- <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span> -->
+            </div>
+            </li>
+
+
+        </div>
+        </div>
+
+    </nav>
+
+    <section id="home" class="home">
+        <img src="" alt="" id="profimg">
+        <div id="contentprof">
+            <h1 class="title">My <span>Profile</span></h1>
+            <div id="div">
+                <h2 class="key">
+                    UserName:
+                </h2>
+                <h2 class="value" id="name"></h2>
+
+            </div>
+            <div id="div">
+                <h2 id="emailkey" class="key">
+                    Email:
+                </h2>
+                <h2 class="value" id="emailvalue"></h2>
+
+            </div>
+            <div id="div">
+                <h2 id="Numberkey" class="key">
+                    Number:
+                </h2>
+                <h2 class="value" id="Numbervalue"></h2>
+
+            </div>
+            <div id="div">
+                <h2 id="Descriptionkey" class="key">
+                    Description:
+                </h2>
+                <h2 class="value" id="Descriptionvalue"></h2>
+
+            </div>
+            <button id="back" class="back">
+                back
+            </button>
+            <button id="delete" class="delete">
+                Detele Account
+            </button>
+        </div>
+
+
+    </section>
+
+    <script>
+        const body = document.querySelector('body'),
+            sidebar = body.querySelector('nav'),
+            toggle = body.querySelector(".toggle"),
+            searchBtn = body.querySelector(".search-box"),
+            modeSwitch = body.querySelector(".toggle-switch"),
+            modeText = body.querySelector(".mode-text");
+
+
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        })
+
+        searchBtn.addEventListener("click", () => {
+            sidebar.classList.remove("close");
+        })
+        //card creating process
+        //profile card function
+        let userDetails = JSON.parse(window.localStorage.getItem("Doctor_category"))
+        console.log(userDetails);
+        let emailuser = window.localStorage.getItem("Current_User_id")
+        console.log(emailuser);
+
+        function login_data(e) {
+            return e.Email == emailuser;
+        }
+        user_list = userDetails.find(login_data);
+        console.log(user_list);
+        let username = document.getElementById("name");
+        let email = document.getElementById("emailkey");
+        let number = document.getElementById("Numberkey");
+        let Description = document.getElementById("Descriptionkey");
+
+        username.innerText = user_list["Username"];
+        email.innerText = user_list["Email"];
+        number.innerText = user_list["Contact"];
+        Description.innerText = user_list["Description"];
+
+
+        //delete function 
+        function deldata() {
+            if (confirm("Are you sure?")) {
+                let user_data = JSON.parse(localStorage.getItem("user_data"));
+                let userID = document.getElementById("email").value = user_data[0]["email"];
+                console.log(userID)
+
+                function login_data(e) {
+                    return e.email == userID;
+                }
+                user_list = user_data.find(login_data);
+
+                console.log(user_list)
+                const indexOfuser = user_data;
+
+                user_data.splice(indexOfuser, 1);
+
+                localStorage.setItem('user_data', JSON.stringify(user_data));
+                location.href = "../pages/login.html"
+            }
+        }
+
+            // modeSwitch.addEventListener("click", () => {
+        //     body.classList.toggle("dark");
+
+        //     if (body.classList.contains("dark")) {
+        //         modeText.innerText = "Light mode";
+        //     } else {
+        //         modeText.innerText = "Dark mode";
+
+        //     }
+        // });
+    </script>
+
+</body>
+
+</html>

@@ -19,7 +19,7 @@
             <input class="input" id="mname" placeholder="Middle Name" type="text" pattern="[A-Za-z]{3,32}" required />
             <input class="input" id="Lname" placeholder="Last Name" type="text" pattern="[A-Za-z]{3,32}" required />
 
-
+            t
             <input class="input" id="email" placeholder="E-mail id" type="email" required />
 
             <input class="input" id="phnumber" placeholder="Phone Number" type="number" pattern="[0-9]{1,10}"
@@ -54,6 +54,7 @@
             const password = document.getElementById("password").value;
             const cpassword = document.getElementById("cpassword").value;
             let id = self.crypto.randomUUID();
+
             userdata["fname"] = fname;
             userdata["mname"] = mname;
             userdata["Lname"] = Lname;
@@ -66,6 +67,7 @@
             if (userdata["password"] === userdata["cpassword"]) {
                 arr.push(userdata);
             }
+
 
             if (window.localStorage.getItem("user") === null) {
                 window.localStorage.setItem("user", JSON.stringify(arr));

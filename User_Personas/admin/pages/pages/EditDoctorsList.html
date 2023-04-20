@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/CSS/CommonProfile.css" />
+    <title>Edit Doctor</title>
+</head>
+
+<body class="main-parent">
+    <div class="containerOfHole">
+        <form class="containerOfMini" id="form">
+            <h1>Edit<span>Doctor</span></h1>
+            <input class="input" id="imgurl" placeholder="Enter URL" type="url" required />
+            <input class="input" id="name" placeholder="Enter Name" type="text" pattern="[A-Za-z]{3,32}" required />
+            <input class="input" id="email" placeholder="Enter Email" type="email" required />
+            <input class="input" id="phnumber" placeholder="Phone Number" type="number" pattern="[0-9]{1,10}"
+                required />
+            <button type="submit" class="btn">submit</button>
+        </form>
+    </div>
+    <script>
+        let doctorId = JSON.parse(localStorage.getItem("uuid"));
+        console.log(doctorId);
+        let doctorData = JSON.parse(localStorage.getItem("doctordata"));
+        console.log(doctorData);
+
+        // let currentDoctor = doctorData.find((id) => doctorData.id === doctorId);
+        let currentDoctor = doctorData.find(function (cal) {
+            let id = cal["id"];
+            if (doctorId === id) {
+                return true;
+            }
+        });
+
+        // console.log(currentDoctor);
+
+        document.getElementById("imgurl").value = currentDoctor.imgurl;
+        document.getElementById("name").value = currentDoctor.name;
+        document.getElementById("email").value = currentDoctor.email;
+        document.getElementById("phnumber").value = currentDoctor.phnumber;
+
+        let form = document.getElementById("form");
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let currentDoctor = doctorData.find(function (cal) {
+                let id = cal["id"];
+                if (doctorId === id) {
+                    return true;
+                }
+            });
+            let imgurl = document.getElementById("imgurl").value;
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phnumber = document.getElementById("phnumber").value;
+            console.log(currentDoctor);
+            currentDoctor["imgurl"] = imgurl;
+            currentDoctor["name"] = name;
+            currentDoctor["email"] = email;
+            currentDoctor["phnumber"] = phnumber;
+            localStorage.setItem("doctordata", JSON.stringify(doctorData));
+            window.location.href = "./Doctorslist.html"
+        });
+    </script>
+</body>

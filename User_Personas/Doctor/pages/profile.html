@@ -123,7 +123,7 @@
     <section id="home" class="home">
         <img src="" alt="" id="profimg">
         <div id="contentprof">
-            <h1 class="title">My <span>Profile</span></h1>
+            <h1 class="title">My <span class="sub-title">Profile</span></h1>
             <div id="div">
                 <h2 class="key">
                     UserName:
@@ -152,10 +152,19 @@
                 <h2 class="value" id="Descriptionvalue"></h2>
 
             </div>
-            <button id="back" class="back">
-                back
-            </button>
-            <button id="delete" class="delete">
+            <div id="div">
+                <h2 id="Specialistkey" class="key">
+                    Specialist:
+                </h2>
+                <h2 class="value" id="Specialistvalue"></h2>
+
+            </div>
+
+            <a href="./editProfile.html"> <button id="edit" class="edit">
+                    Edit
+                </button></a>
+
+            <button id="delete" class="delete" onclick="deldata()">
                 Detele Account
             </button>
         </div>
@@ -192,14 +201,18 @@
         user_list = userDetails.find(login_data);
         console.log(user_list);
         let username = document.getElementById("name");
-        let email = document.getElementById("emailkey");
-        let number = document.getElementById("Numberkey");
-        let Description = document.getElementById("Descriptionkey");
+        let userprofile = document.getElementById("profimg");
+        let email = document.getElementById("emailvalue");
+        let number = document.getElementById("Numbervalue");
+        let Description = document.getElementById("Descriptionvalue");
+        let Specialist = document.getElementById("Specialistvalue");
 
-        username.innerText = user_list["Username"];
+        username.innerText = "Dr. " + user_list["Username"];
+        userprofile.src = user_list["Profile"];
         email.innerText = user_list["Email"];
         number.innerText = user_list["Contact"];
         Description.innerText = user_list["Description"];
+        Specialist.innerText = user_list["Special"];
 
 
         //delete function 

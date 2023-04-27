@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./EditProfile.css">
+    <title>Doctor Login | FreshBYE</title>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="logo">
+            <a href="#"><span>Fresh</span>BYE</a>
+        </div>
+
+    </div>
+    <div id="HoleCard">
+        <div id="ImageContainer">
+            <img src="../assests/Images/Editprofile.jpg" alt="DoctorImg" id="LoginImg">
+        </div>
+        <div id="form">
+            <form action="#" id="form_container" class="container">
+                <h2 id="titleofForm">Edit <span>Profile</span></h2>
+                <input type="text" id="Username" placeholder="Enter User Name" pattern="[A-Za-z]{3,32}" required>
+
+                <input type="url" name="profile pic" id="Profile" placeholder="Enter profile URL" required>
+                <input type="number" placeholder="Enter Your Whatsapp Number" id="number" pattern="[0-9]{1,10}"
+                    required>
+                <select name="Specialist" id="Special">
+                    <option value="General psychiatrists">General psychiatrists</option>
+                    <option value="Child and adolescent psychiatrists">Child and adolescent psychiatrists</option>
+                    <option value="Geriatric psychiatrists">Geriatric psychiatrists</option>
+                    <option value="Addiction psychiatrists">Addiction psychiatrists</option>
+                    <option value="Forensic psychiatrists">Forensic psychiatrists</option>
+                    <option value="Neuropsychiatrists">Neuropsychiatrists</option>
+                    <option value="Consultation-liaison psychiatrists">Consultation-liaison psychiatrists</option>
+                    <option value="Psychopharmacologists">Psychopharmacologists</option>
+                    <option value="Psychotherapists">Psychotherapists</option>
+                </select>
+                <input type="textarea" placeholder="Enter something about You" id="aboutdoc">
+
+                <button onclick="update()">Save</button>
+                <small id="createacc">I want to<span><a href="./profile.html"> Go Back</a></span></small>
+            </form>
+        </div>
+    </div>
+    <script>
+        let doctorCategory = JSON.parse(localStorage.getItem("Doctor_category")); //parse data from local storage
+        let Doctor_id = window.localStorage.getItem("Current_User_id");
+        let Doctor_data = doctorCategory.find((doc) => doc.Email === Doctor_id);
+
+        document.getElementById("Username").value = Doctor_data["Username"];
+        document.getElementById("Profile").value = Doctor_data["Profile"];
+        document.getElementById("number").value = Doctor_data["Contact"];
+        document.getElementById("Special").value = Doctor_data["Special"];
+        document.getElementById("aboutdoc").value = Doctor_data["Description"];
+
+
+        function update() {
+            event.preventDefault();
+            let editedUserName = document.getElementById("Username").value;
+            let editedProfile = document.getElementById("Profile").value;
+            let editedNumber = document.getElementById("number").value;
+            let editedSpecial = document.getElementById("Special").value;
+            let editedDescription = document.getElementById("aboutdoc").value;
+
+            // update the Doctor_data object directly
+            Doctor_data["Username"] = editedUserName;
+            Doctor_data["Profile"] = editedProfile;
+            Doctor_data["Contact"] = editedNumber;
+            Doctor_data["Special"] = editedSpecial;
+            Doctor_data["Description"] = editedDescription;
+
+            // update the Doctor_category array in local storage
+            let updatedCategory = doctorCategory.map((doc) => {
+                if (doc.Email === Doctor_id) {
+                    return Doctor_data;
+                } else {
+                    return doc;
+                }
+            });
+
+            localStorage.setItem("Doctor_category", JSON.stringify(updatedCategory));
+            alert("Update successful!");
+            location.href = "./profile.html";
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

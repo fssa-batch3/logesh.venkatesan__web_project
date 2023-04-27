@@ -1,5 +1,7 @@
  /* Google Font Import - Poppins */
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Permanent+Marker&display=swap');
+
 
  * {
      margin: 0;
@@ -250,7 +252,7 @@
      display: flex;
      flex-direction: column;
      justify-content: space-between;
-     overflow-y: scroll;
+
  }
 
  .menu-bar::-webkit-scrollbar {
@@ -434,7 +436,73 @@
  #home {
      background-color: rgb(127, 127, 127);
      box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-     height: 50em;
-     width: 80em;
-     margin: 4em;
+     height: 37em;
+     width: 70em;
+     margin: 10em 7em;
+     border: 2px solid yellow;
+ }
+
+ #home button {
+     padding: 0.5em 1.13em;
+     background-color: yellow;
+     border: none;
+     border-radius: 2em;
+     margin-top: 3.3em;
+     margin-left: 6em;
+ }
+
+ #home img {
+     height: 100%;
+     width: 35em;
+
+ }
+
+ #home {
+     display: flex;
+ }
+
+ #contentprof {
+     width: 100%;
+ }
+
+ #div {
+     display: flex;
+     margin-left: 2em;
+     padding-top: 1.5em;
+     gap: 3em;
+ }
+
+ #home #contentprof .title {
+     color: yellow;
+     font-size: 2.3em;
+     text-align: center;
+     font-family: 'Delicious Handrawn', 'cursive';
+ }
+
+ #home #contentprof .title span {
+     color: rgb(255, 255, 255);
+     font-size: 1.8em;
+     text-align: center;
+     font-family: 'Delicious Handrawn', 'cursive';
+ }
+
+ #home #contentprof {
+     margin-top: 3em;
+     gap: 20px;
+ }
+
+ #div .key {
+     color: rgb(255, 255, 255);
+     font-size: 2em;
+     font-weight: 300;
+     text-align: center;
+     font-family: 'Delicious Handrawn', 'cursive';
+ }
+
+ #div .value {
+     color: yellow;
+     font-size: 2.3em;
+     font-weight: 300;
+     text-align: center;
+     font-family: 'Delicious Handrawn', 'cursive';
  }

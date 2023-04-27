@@ -6,9 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home |FreshBYE</title>
+    <title>Volunteers |FreshBYE</title>
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="./Home.css">
+    <link rel="stylesheet" href="./Volunteerlist.css">
 
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -43,28 +44,28 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./Home.html">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Home</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./profile.html">
+                        <a href="/User_Personas/Doctor/pages/profile.html">
                             <img src="../assests/Images/Profile.png" alt="Profile_icon">
                             <span class="text nav-text">My Profile</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./Patient.html">
                             <img src="../assests/Images/Doctor.png" alt="Doctor_icon">
-                            <span class="text nav-text">Doctor</span>
+                            <span class="text nav-text">Patients</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./volunteerlist.html">
                             <img src="../assests/Images/Volunteer.png" alt="Volunteer">
                             <span class="text nav-text">Volunteer</span>
                         </a>
@@ -120,42 +121,12 @@
     </nav>
 
     <section id="home" class="home">
-        <div id="title" class="text">Posts</div>
-        <div id="post-section">
-            <div id="solo-post">
-                <div id="profile-post">
-                    <img src="../assests/Images/Profile.png" alt="Profile">
-                    <h2 id="profile-name">Logesh Venkatesan</h2>
-                </div>
-                <video controls>
-                    <source src="https://youtu.be/HeRFIEkSJ10">
+        <h1 id="h1header">Volunteers<span id="h1headerspan"> List</span></h1>
+        <div id="cardcon">
 
-                </video>
-                <h2 id="discription_title">#Dada_movie</h2>
-                <p id="description">
-                    Above Scene is mentioned how to lead life after breakup
-                </p>
-            </div>
-        </div>
-        <div id="post-section">
-            <div id="solo-post">
-                <div id="profile-post">
-                    <img src="../assests/Images/Profile.png" alt="Profile">
-                    <h2 id="profile-name">Logesh Venkatesan</h2>
-                </div>
-                <video controls>
-                    <source src="https://youtu.be/HeRFIEkSJ10">
-
-                </video>
-                <h2 id="discription_title">#Vallavan_movie</h2>
-                <p id="description">
-                    Above Scene is mentioned how to lead life after commitment
-                </p>
-            </div>
         </div>
         <div class="Add_post">
-            <a href="./New_Post.html"><button class="post">New
-                    Post</button></a>
+            <a href="./New_Post.html"><button class="post">Book Appointment</button></a>
         </div>
     </section>
 
@@ -177,76 +148,47 @@
         })
         //card creating process
 
-        let PostedData = JSON.parse(localStorage.getItem("PostedData"));
-        console.log(PostedData);
-
-        for (let i = 0; i < PostedData.length; i++) {
-            let parent = document.createElement("div")
-            parent.setAttribute("id", "post-section");
-
-            let card = document.createElement("div");
-            card.setAttribute("id", "solo-post");
-            console.log(card);
-
-            let card1 = document.createElement("div");
-            card1.setAttribute("id", "profile-post");
-            console.log(card1);
-
-            let img = document.createElement("img");
-            img.setAttribute("src", '../assests/Images/Profile.png');
-            card1.append(img);
-            // console.log(img);
-
-            let Name = document.createElement("h2");
-            Name.setAttribute("id", "profile-name");
-            Name.innerText = "Dr. " + "Logesh Venkatesan";
-            card1.append(Name);
-            card.append(card1)
-            // console.log(Name);
 
 
-            let Video = document.createElement("video");
-            Video.setAttribute("controls", "");
-            card.append(Video)
-            console.log(card1);
+        const search_url = window.location.search;
+        const param = new URLSearchParams(search_url);
+        const get_url = param.get("id");
+        console.log(get_url)
+        let volunteer = JSON.parse(localStorage.getItem("Volunteer_Detail"));
+        console.log(volunteer);
 
-            // console.log(email);
+        let find_user = volunteer.find(function (event) {
+            let Volunteers_id = event["id"];
+            if (get_url == Volunteers_id) {
+                return true;
+            }
+        });
 
-            let source = document.createElement("Source");
-            source.setAttribute("src", PostedData[i]["Video_URL"]);
-            Video.append(source);
+        let image = document.getElementById("image");
+        let name1 = document.getElementById("name")
+        let about = document.getElementById("about");
 
-            // console.log(mobile);
-            let Title = document.createElement("h2");
-            Title.setAttribute("id", "discription_title");
-            Title.innerText = PostedData[i]["Video_title"];
-            card.append(Title);
+        image.setAttribute("src", find_user["Profile"]);
+        name1.innerText = find_user["Username"];
+        about.innerText = find_user["aboutpat"]
 
-            let Description = document.createElement("p");
-            Description.setAttribute("id", "description");
-            Description.innerText = "@" + PostedData[i]["Video_Description"];
-            card.append(Description);
-            parent.append(card)
-            console.log(card1);
+        //function for find the card's unique id and store in ls
 
-            // console.log(button1);
 
-            let container = document.getElementById("home");
-            container.append(parent);
-        }
 
-        // modeSwitch.addEventListener("click", () => {
-        //     body.classList.toggle("dark");
 
-        //     if (body.classList.contains("dark")) {
-        //         modeText.innerText = "Light mode";
-        //     } else {
-        //         modeText.innerText = "Dark mode";
-
-        //     }
-        // });
     </script>
 
 </body>
 
 </html>
+
+
+
+<!-- <body class="main-parent">
+    <div class="containerOfHole" id="containerOfHole"></div>
+   
+</body>
+
+
+</html> -->

@@ -173,12 +173,16 @@
             Specialist.innerText = volunteer[i]['aboutvol'];
             card.append(Specialist);
 
+            let anchor = document.createElement('a');
+            anchor.setAttribute('href', "/User_Personas/Doctor/pages/VolunteerDetails.html" + volunteer[i]['id']);
+
 
             let Details = document.createElement('button');
             Details.innerText = 'Details';
             Details.setAttribute("class", "detailsbtn");
             // button.setAttribute("onclick", "deldata()")
-            card.append(Details);
+            anchor.append(Details);
+            card.append(anchor)
             // console.log(button1);
 
             let container = document.getElementById("cardcon");
@@ -186,57 +190,10 @@
         }
 
         //function for find the card's unique id and store in ls
-        let Edit = document.querySelectorAll("button.editbtn");
-        Edit.forEach(function (findId) {
-            findId.addEventListener("click", function () {
-                let parent = this.closest(".card")
-
-                const Id = parent.querySelector(".editbtn").getAttribute("id")
-                console.log(Id);
-                localStorage.setItem("uuid", JSON.stringify(Id));
-                confirm("Are you sure to Edit")
-                window.location.href = "./EditDoctorsList.html";
-            })
-        });
-
-
-
-        let deleteButtons = document.querySelectorAll("button.detailsbtn");
-        deleteButtons.forEach(function (button) {
-            button.addEventListener("click", function () {
-                if (confirm("Are you sure?")) {
-                    let jsonData = JSON.parse(window.localStorage.getItem("doctordata"));
-                    let card = this.closest(".card");
-                    let id = card.querySelector(".editbtn").getAttribute("id");
-                    // assuming you set a data-id attribute on the card element
-                    console.log(id);
-
-
-                    let indexOf = jsonData.findIndex(obj => obj.id === id);
-                    console.log(indexOf);
-                    jsonData.splice(indexOf, 1);
-                    // // Save updated data to local storage
-                    window.localStorage.setItem("doctordata", JSON.stringify(jsonData));
-                    // // Redirect to Doctorslist page
-                    window.location.href = "./Doctorslist.html";
-                }
-            });
-        });
 
 
 
 
-
-        // modeSwitch.addEventListener("click", () => {
-        //     body.classList.toggle("dark");
-
-        //     if (body.classList.contains("dark")) {
-        //         modeText.innerText = "Light mode";
-        //     } else {
-        //         modeText.innerText = "Dark mode";
-
-        //     }
-        // });
     </script>
 
 </body>

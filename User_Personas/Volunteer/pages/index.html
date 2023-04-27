@@ -59,7 +59,9 @@
             }
             if (isMatch === true) {
                 alert("success");//match achuna success nu varum 
-                window.location.href = "./patient_Signup.html";//redirect panni profile page ku poguthu
+                window.localStorage.setItem("Current_User_id", email)
+
+                window.location.href = "./Home.html";//redirect panni profile page ku poguthu
             } else {
                 alert("failed");//match agalena success nu varum 
                 window.location.href = "./index.html";

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./EditProfile.css">
+    <title> Volunteer Login | FreshBYE</title>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="logo">
+            <a href="#"><span>Fresh</span>BYE</a>
+        </div>
+
+    </div>
+    <div id="HoleCard">
+        <div id="ImageContainer">
+            <img src="../assests/Images/volunteers_profedit.jpg" alt="DoctorImg" id="LoginImg">
+        </div>
+        <div id="form">
+            <form action="#" id="form_container" class="container">
+                <h2 id="titleofForm">Edit <span>Profile</span></h2>
+                <input type="text" id="Username" placeholder="Enter User Name" pattern="[A-Za-z]{3,32}" required>
+
+                <input type="url" name="profile pic" id="Profile" placeholder="Enter profile URL" required>
+
+                <input type="textarea" placeholder="Enter something about You" id="aboutdoc">
+
+                <button onclick="update()">Save</button>
+                <small id="createacc">I want to<span><a href="./profile.html"> Go Back</a></span></small>
+            </form>
+        </div>
+    </div>
+    <script>
+        let VolunteerCategory = JSON.parse(localStorage.getItem("Volunteer_Detail")); //parse data from local storage
+        let Volunteer_id = window.localStorage.getItem("Current_User_id");
+        let Volunteer_data = VolunteerCategory.find((doc) => doc.email === Volunteer_id);
+
+        document.getElementById("Username").value = Volunteer_data["Username"];
+        document.getElementById("Profile").value = Volunteer_data["Profile"];
+        document.getElementById("aboutdoc").value = Volunteer_data["aboutvol"];
+
+
+        function update() {
+            event.preventDefault();
+            let editedUserName = document.getElementById("Username").value;
+            let editedProfile = document.getElementById("Profile").value;
+            let editedDescription = document.getElementById("aboutdoc").value;
+
+            // update the Doctor_data object directly
+            Volunteer_data["Username"] = editedUserName;
+            Volunteer_data["Profile"] = editedProfile;
+            Volunteer_data["Description"] = editedDescription;
+
+            // update the Doctor_category array in local storage
+            let updatedCategory = VolunteerCategory.map((doc) => {
+                if (doc.Email === Volunteer_id) {
+                    return Volunteer_data;
+                } else {
+                    return doc;
+                }
+            });
+
+            localStorage.setItem("Volunteer_Detail", JSON.stringify(updatedCategory));
+            alert("Update successful!");
+            location.href = "./profile.html";
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

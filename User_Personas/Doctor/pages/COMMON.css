@@ -1313,9 +1313,8 @@ body::-webkit-scrollbar {
 /* BYEVIDEO BELOW */
 .profile-img-4 {
     width: 300px;
-    height: 239px;
-    border-bottom-left-radius: 2em;
-    border-bottom-right-radius: 2em;
+    height: 169px;
+
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
@@ -1630,4 +1629,13 @@ a {
     margin-left: 16em;
     border-radius: 2em;
     background-color: var(--Orange);
+}
+
+#addvideo {
+    padding: 1em 2.5em;
+    margin-left: 6em;
+    background-color: green;
+    border-radius: 2em;
+    color: black;
+    font-weight: 800;
 }

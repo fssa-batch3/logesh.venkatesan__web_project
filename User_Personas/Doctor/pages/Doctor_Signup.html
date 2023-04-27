@@ -83,6 +83,7 @@
                 arr.push(userdata);
             } else {
                 alert("Password And Confirm Password Doesn't Match")
+                return;
             }
             if (window.localStorage.getItem("Doctor_category") === null) {
                 window.localStorage.setItem("Doctor_category", JSON.stringify(arr));

@@ -40,7 +40,7 @@
         Patient_login.addEventListener("submit", (event) => {//listen event by eventlistener
             event.preventDefault();//prevent page by refresh
             let logn = [];//create a empty array
-            let normaldata = JSON.parse(localStorage.getItem("Patient_Detail"));//store our localstorage to defaultdata variable 
+            let normaldata = JSON.parse(localStorage.getItem("Patient_List"));//store our localstorage to defaultdata variable 
             console.log(normaldata);//for verification
             let email = document.getElementById("email").value;//store email to email variable
             let password = document.getElementById("password").value;//store password to password variable
@@ -53,13 +53,15 @@
             if (matchedData) {
                 isMatch = true;
                 logn.push(matchedData);
-                window.localStorage.setItem("Patient_login", JSON.stringify(logn));
+                window.localStorage.setItem("Profile_id", JSON.stringify(logn));
+
             } else {
                 isMatch = false;
             }
             if (isMatch === true) {
                 alert("success");//match achuna success nu varum 
-                window.location.href = "./patient_Signup.html";//redirect panni profile page ku poguthu
+                window.localStorage.setItem("Current_User_id", email)
+                window.location.href = "./home.html";//redirect panni profile page ku poguthu
             } else {
                 alert("failed");//match agalena success nu varum 
                 window.location.href = "./index.html";

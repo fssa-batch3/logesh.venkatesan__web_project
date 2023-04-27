@@ -65,19 +65,27 @@
                 arr.push(userdata);
             } else {
                 alert("Given Passwords Are Not Match")
+                return; // add this line to prevent redirecting to the next page
             }
 
-            if (window.localStorage.getItem("Patient_Detail") === null) {
-                window.localStorage.setItem("Patient_Detail", JSON.stringify(arr));
+
+            if (window.localStorage.getItem("Patient_List") === null) {
+                window.localStorage.setItem("Patient_List", JSON.stringify(arr));
+                alert("Successfully Account Created")
+                window.location.href = "./index.html";
             } else {
-                let local = window.localStorage.getItem("Patient_Detail");
+                let local = window.localStorage.getItem("Patient_List");
                 let json = JSON.parse(local);
                 json.push(userdata);
-                window.localStorage.setItem("Patient_Detail", JSON.stringify(json));
+                window.localStorage.setItem("Patient_List", JSON.stringify(json));
+                alert("Successfully Account Created")
+                window.location.href = "./index.html";
+
             }
-            window.location.href = "./index.html";
+
         });
     </script>
+    <a href=""></a>
 </body>
 
 </html>

@@ -409,7 +409,8 @@
 
  }
 
- #solo-post video {
+ #solo-post img,
+ video {
      height: 30em;
      width: 45em;
      margin-left: 2em;
@@ -429,4 +430,20 @@
      font-size: 16px;
      font-weight: 400;
      width: 30em;
+ }
+
+ .Post {
+     background-color: yellow;
+     border-radius: 1.35em;
+     border: none;
+     padding: 14px;
+     margin-left: 2em;
+
+ }
+
+ .cancel {
+     background-color: rgb(255, 55, 0);
+     border-radius: 1.95em;
+     border: none;
+     padding: 10px;
  }

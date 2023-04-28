@@ -43,35 +43,35 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./Home.html">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Home</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./profile.html">
+                        <a href="/User_Personas/Doctor/pages/profile.html">
                             <img src="../assests/Images/Profile.png" alt="Profile_icon">
                             <span class="text nav-text">My Profile</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./Patient.html">
                             <img src="../assests/Images/Doctor.png" alt="Doctor_icon">
-                            <span class="text nav-text">Doctor</span>
+                            <span class="text nav-text">Patients</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./volunteerlist.html">
                             <img src="../assests/Images/Volunteer.png" alt="Volunteer">
                             <span class="text nav-text">Volunteer</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./chatroom.html">
                             <img src="../assests/Images/Chat.png" alt="Chat_icon">
                             <span class="text nav-text">Chats</span>
                         </a>
@@ -96,7 +96,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a href="./index.html">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -125,12 +125,12 @@
             <div id="solo-post">
                 <div id="profile-post">
                     <img src="../assests/Images/Profile.png" alt="Profile">
-                    <h2 id="profile-name">Logesh Venkatesan</h2>
+                    <h2 id="profile-name">Dr.Logesh Venkatesan</h2>
                 </div>
-                <video controls>
-                    <source src="https://youtu.be/HeRFIEkSJ10">
+                <img src="../assests/Images/Images/Banner Image/dada.jpeg">
 
-                </video>
+
+
                 <h2 id="discription_title">#Dada_movie</h2>
                 <p id="description">
                     Above Scene is mentioned how to lead life after breakup
@@ -141,17 +141,17 @@
             <div id="solo-post">
                 <div id="profile-post">
                     <img src="../assests/Images/Profile.png" alt="Profile">
-                    <h2 id="profile-name">Logesh Venkatesan</h2>
+                    <h2 id="profile-name">Dr.Logesh Venkatesan</h2>
                 </div>
-                <video controls>
-                    <source src="https://youtu.be/HeRFIEkSJ10">
-
-                </video>
+                <img src="../assests/Images/Vallan.jpg">
                 <h2 id="discription_title">#Vallavan_movie</h2>
                 <p id="description">
                     Above Scene is mentioned how to lead life after commitment
                 </p>
             </div>
+        </div>
+        <div class="appointment" id="appointpage">
+
         </div>
         <div class="Add_post">
             <a href="./New_Post.html"><button class="post">New
@@ -205,22 +205,29 @@
             // console.log(Name);
 
 
-            let Video = document.createElement("video");
-            Video.setAttribute("controls", "");
-            card.append(Video)
-            console.log(card1);
+            let Post_img = document.createElement("img");
+            Post_img.src = PostedData[i]["Video_URL"];
+            card.append(Post_img)
 
-            // console.log(email);
+            let edit = document.createElement("button");
+            edit.setAttribute("class", "Post");
+            edit.setAttribute("id", PostedData[i]["id"])
+            edit.innerText = "Edit";
+            card.append(edit)
 
-            let source = document.createElement("Source");
-            source.setAttribute("src", PostedData[i]["Video_URL"]);
-            Video.append(source);
+            let del = document.createElement("button");
+            del.setAttribute("class", "cancel");
+            del.innerText = "X";
+            card.append(del)
 
-            // console.log(mobile);
+
+
+
             let Title = document.createElement("h2");
             Title.setAttribute("id", "discription_title");
             Title.innerText = PostedData[i]["Video_title"];
             card.append(Title);
+
 
             let Description = document.createElement("p");
             Description.setAttribute("id", "description");
@@ -234,6 +241,43 @@
             let container = document.getElementById("home");
             container.append(parent);
         }
+        let Edit = document.querySelectorAll("button.Post");
+        Edit.forEach(function (findId) {
+            findId.addEventListener("click", function () {
+                let parent = this.closest(".card")
+
+                const Id = parent.querySelector(".editbtn").getAttribute("id")
+                console.log(Id);
+                localStorage.setItem("uuid", JSON.stringify(Id));
+                confirm("Are you sure to Edit")
+                window.location.href = "./EditDoctorsList.html";
+            })
+        });
+
+
+
+        let deleteButtons = document.querySelectorAll("button.del");
+        deleteButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                if (confirm("Are you sure?")) {
+                    let jsonData = JSON.parse(window.localStorage.getItem("doctordata"));
+                    let card = this.closest(".card");
+                    let id = card.querySelector(".editbtn").getAttribute("id");
+                    // assuming you set a data-id attribute on the card element
+                    console.log(id);
+
+
+                    let indexOf = jsonData.findIndex(obj => obj.id === id);
+                    console.log(indexOf);
+                    jsonData.splice(indexOf, 1);
+                    // // Save updated data to local storage
+                    window.localStorage.setItem("doctordata", JSON.stringify(jsonData));
+                    // // Redirect to Doctorslist page
+                    window.location.href = "./Doctorslist.html";
+                }
+            })
+        }
+        );
 
         // modeSwitch.addEventListener("click", () => {
         //     body.classList.toggle("dark");
@@ -245,6 +289,10 @@
 
         //     }
         // });
+
+        /*this card is for creating appointment card for doctor page*/
+
+
     </script>
 
 </body>

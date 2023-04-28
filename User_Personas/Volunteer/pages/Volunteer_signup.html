@@ -70,6 +70,7 @@
 
             if (window.localStorage.getItem("Volunteer_Detail") === null) {
                 window.localStorage.setItem("Volunteer_Detail", JSON.stringify(arr));
+                alert("successfully created account")
             } else {
                 let local = window.localStorage.getItem("Volunteer_Detail");
                 let json = JSON.parse(local);

@@ -212,9 +212,6 @@
                     console.log(id);
 
 
-                    let indexOf = jsonData.findIndex(obj => obj.id === id);
-                    console.log(indexOf);
-                    jsonData.splice(indexOf, 1);
                     // // Save updated data to local storage
                     window.localStorage.setItem("doctordata", JSON.stringify(jsonData));
                     // // Redirect to Doctorslist page

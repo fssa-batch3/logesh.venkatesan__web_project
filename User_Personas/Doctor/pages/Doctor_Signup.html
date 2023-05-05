@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./DR_signup.css">
+    <link rel="stylesheet" href="/assest/pages/notify.css">
     <title>Doctor Login | FreshBYE</title>
 </head>
 
@@ -54,6 +55,8 @@
             </form>
         </div>
     </div>
+    <script src="/library/notify.js"></script>
+    <script src="/library/moment.js"></script>
     <script>
         let arr = [];
         let form = document.getElementById("form_container");
@@ -82,21 +85,23 @@
             if (userdata["Password"] === userdata["Cpassword"]) {
                 arr.push(userdata);
             } else {
-                alert("Password And Confirm Password Doesn't Match")
+                Notify.error("Password And Confirm Password Doesn't Match")
                 return;
             }
             if (window.localStorage.getItem("Doctor_category") === null) {
                 window.localStorage.setItem("Doctor_category", JSON.stringify(arr));
-                alert("Successfully Created")
+                Notify.success("Successfully Created")
             } else {
                 let local = window.localStorage.getItem("Doctor_category");
                 let json = JSON.parse(local);
                 json.push(userdata);
                 window.localStorage.setItem("Doctor_category", JSON.stringify(json));
-                alert("Successfully Created")
+                Notify.success("Successfully Created")
             }
             window.location.href = "../pages/index.html";
         });
+
+        console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
     </script>
 </body>
 

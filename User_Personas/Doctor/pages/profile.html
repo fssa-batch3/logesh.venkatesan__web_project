@@ -9,14 +9,14 @@
     <title>Profile | FreshBYE</title>
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="./profile.css">
-
+    <link rel="stylesheet" href="/assest/pages/notify.css">
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
     <!--<title>Dashboard Sidebar Menu</title>-->
 </head>
 
-<body>
+<body oncontextmenu="return false;">
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -171,7 +171,7 @@
 
 
     </section>
-
+    <script src="/library/notify.js"></script>
     <script>
         const body = document.querySelector('body'),
             sidebar = body.querySelector('nav'),
@@ -218,22 +218,24 @@
         //delete function 
         function deldata() {
             if (confirm("Are you sure?")) {
-                let user_data = JSON.parse(localStorage.getItem("user_data"));
-                let userID = document.getElementById("email").value = user_data[0]["email"];
+                let user_data = JSON.parse(localStorage.getItem("Doctor_category"));
+                let user_email = localStorage.getItem("Current_User_id");
+                let userID = document.getElementById("emailkey").value = user_email;
                 console.log(userID)
 
-                function login_data(e) {
-                    return e.email == userID;
-                }
-                user_list = user_data.find(login_data);
+                // function login_data(e) {
+                //     return e.Email == userID;
+                // }
+                // user_list = user_data.find(login_data()); ~
 
                 console.log(user_list)
-                const indexOfuser = user_data;
+                const indexOfuser = user_list;
 
                 user_data.splice(indexOfuser, 1);
 
-                localStorage.setItem('user_data', JSON.stringify(user_data));
-                location.href = "../pages/login.html"
+                localStorage.setItem('Doctor_category', JSON.stringify(user_data));
+                Notify.success("Successfully Deleted")
+                location.href = "./index.html"
             }
         }
 
@@ -248,7 +250,6 @@
         //     }
         // });
     </script>
-
 </body>
 
 </html>

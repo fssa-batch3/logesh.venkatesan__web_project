@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assest/pages/notify.css">
     <link rel="stylesheet" href="./EditProfile.css">
     <title>Doctor Login | FreshBYE</title>
 </head>
@@ -23,29 +24,22 @@
         <div id="form">
             <form action="#" id="form_container" class="container">
                 <h2 id="titleofForm">Edit <span>Profile</span></h2>
-                <input type="text" id="Username" placeholder="Enter User Name" pattern="[A-Za-z]{3,32}" required>
+                <input type="text" id="Username" title="User Must Fill All Credential" placeholder="Enter User Name"
+                    pattern="[A-Za-z]{3,32}" required>
 
-                <input type="url" name="profile pic" id="Profile" placeholder="Enter profile URL" required>
-                <input type="number" placeholder="Enter Your Whatsapp Number" id="number" pattern="[0-9]{1,10}"
-                    required>
-                <select name="Specialist" id="Special">
-                    <option value="General psychiatrists">General psychiatrists</option>
-                    <option value="Child and adolescent psychiatrists">Child and adolescent psychiatrists</option>
-                    <option value="Geriatric psychiatrists">Geriatric psychiatrists</option>
-                    <option value="Addiction psychiatrists">Addiction psychiatrists</option>
-                    <option value="Forensic psychiatrists">Forensic psychiatrists</option>
-                    <option value="Neuropsychiatrists">Neuropsychiatrists</option>
-                    <option value="Consultation-liaison psychiatrists">Consultation-liaison psychiatrists</option>
-                    <option value="Psychopharmacologists">Psychopharmacologists</option>
-                    <option value="Psychotherapists">Psychotherapists</option>
-                </select>
-                <input type="textarea" placeholder="Enter something about You" id="aboutdoc">
+                <input type="url" name="profile pic" title="User Must Fill All Credential" id="Profile"
+                    placeholder="Enter profile URL" required>
+                <input type="tel" placeholder="Enter Mobile" title="User Must Fill All Credential" Your Whatsapp Number"
+                    id="number" pattern="[0-9]{5}[0-9]{5}" required>
+
+                <input type="textarea" placeholder="Enter something about You" id="aboutdoc" required>
 
                 <button onclick="update()">Save</button>
                 <small id="createacc">I want to<span><a href="./profile.html"> Go Back</a></span></small>
             </form>
         </div>
     </div>
+    <script src="/library/notify.js"></script>
     <script>
         let doctorCategory = JSON.parse(localStorage.getItem("Doctor_category")); //parse data from local storage
         let Doctor_id = window.localStorage.getItem("Current_User_id");
@@ -54,7 +48,7 @@
         document.getElementById("Username").value = Doctor_data["Username"];
         document.getElementById("Profile").value = Doctor_data["Profile"];
         document.getElementById("number").value = Doctor_data["Contact"];
-        document.getElementById("Special").value = Doctor_data["Special"];
+
         document.getElementById("aboutdoc").value = Doctor_data["Description"];
 
 
@@ -63,14 +57,14 @@
             let editedUserName = document.getElementById("Username").value;
             let editedProfile = document.getElementById("Profile").value;
             let editedNumber = document.getElementById("number").value;
-            let editedSpecial = document.getElementById("Special").value;
+
             let editedDescription = document.getElementById("aboutdoc").value;
 
             // update the Doctor_data object directly
             Doctor_data["Username"] = editedUserName;
             Doctor_data["Profile"] = editedProfile;
             Doctor_data["Contact"] = editedNumber;
-            Doctor_data["Special"] = editedSpecial;
+
             Doctor_data["Description"] = editedDescription;
 
             // update the Doctor_category array in local storage
@@ -82,16 +76,31 @@
                 }
             });
 
-            localStorage.setItem("Doctor_category", JSON.stringify(updatedCategory));
-            alert("Update successful!");
-            location.href = "./profile.html";
+            if (document.getElementById("Username").value.length == 0) {
+                Notify.error("Username Input Need Some Data in it");
+            } else if (document.getElementById("Profile").value.length === 0) {
+                Notify.error("Profile Input Need  Some Data in it");
+
+            } else if (document.getElementById("aboutdoc").value.length == 0) {
+                Notify.error("Description should be Contains Some data");
+            } else if (document.getElementById("number").value.length
+                !== 10) {
+                Notify.error("Mobile Number should be Contains 10 Digits");
+
+            } else {
+                localStorage.setItem("Doctor_category", JSON.stringify(updatedCategory));
+                Notify.success("Update successful!");
+                location.href = "./profile.html";
+            }
         }
 
 
 
 
 
+
     </script>
+    <script src="/library/notify.js"></script>
 </body>
 
 </html>

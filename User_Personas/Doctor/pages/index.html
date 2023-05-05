@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Style.css">
+    <link rel="stylesheet" href="/assest/pages/notify.css">
+
     <title>Doctor Login | FreshBYE</title>
 </head>
 
@@ -32,6 +34,7 @@
             </form>
         </div>
     </div>
+    <script src="/library/notify.js"></script>
     <script>
         let Patient_login = document.getElementById("form_container");//get value by id 
         Patient_login.addEventListener("submit", (event) => {//listen event by eventlistener
@@ -57,11 +60,11 @@
                 isMatch = false;
             }
             if (isMatch === true) {
-                alert("successfully logined");//match achuna success nu varum 
+                Notify.success("successfully logined");//match achuna success nu varum 
                 window.localStorage.setItem("Current_User_id", email)
                 window.location.href = "../pages/Home.html";//redirect panni profile page ku poguthu
             } else {
-                alert("Invalid Email or Invaid password");//match agalena success nu varum 
+                Notify.error("Invalid Email or Invaid password");//match agalena success nu varum 
                 window.location.href = "../pages/index.html";
             }
         });

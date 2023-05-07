@@ -447,3 +447,14 @@
      border: none;
      padding: 10px;
  }
+
+ #profile-editpost {
+     display: visible;
+     margin: left 12em;
+
+ }
+
+ #delete-button {
+     display: visible;
+     margin: left 3em;
+ }

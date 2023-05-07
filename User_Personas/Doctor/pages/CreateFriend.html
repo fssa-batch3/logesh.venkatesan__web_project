@@ -47,21 +47,22 @@
             console.log(Friend);
 
 
-            if (window.localStorage.getItem("CreateFriend") === null) {
 
-                window.localStorage.setItem("CreateFriend", JSON.stringify(arr));
-                arr.push(Friend)
-                alert("Successfully created")
-
-            } else {
-                let local = window.localStorage.getItem("CreateFriend");
-                let json = JSON.parse(local);
-                json.push(Friend);
-
-                window.localStorage.setItem("CreateFriend", JSON.stringify(json));
-                alert("Successfully created")
-            }
-            // window.location.href = "./Doctorslist.html"
+            try {
+                if (window.localStorage.getItem("CreateFriend") === null) {
+                    window.localStorage.setItem("CreateFriend", JSON.stringify(arr));
+                    arr.push(Friend);
+                    alert("Successfully created");
+                } else {
+                    let local = window.localStorage.getItem("CreateFriend");
+                    let json = JSON.parse(local);
+                    json.push(Friend);
+                    window.localStorage.setItem("CreateFriend", JSON.stringify(json));
+                    alert("Successfully created");
+                }
+            } catch (error) {
+                console.error(error);
+            }  // window.location.href = "./Doctorslist.html"
         })
 
 

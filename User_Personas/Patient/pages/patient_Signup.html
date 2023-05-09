@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./patient_signup.css">
+    <link rel="stylesheet" href="/User_Personas/Patient/assests/style/patient_signup.css">
+    <link rel="stylesheet" href="/assest/Styles/notify.css">
     <title>Patient Login | FreshBYE</title>
 </head>
 
@@ -17,9 +18,7 @@
 
     </div>
     <div id="HoleCard">
-        <div id="ImageContainer">
-            <img src="../assests/images/Patient_signup-bg.jpg" alt="DoctorImg" id="LoginImg">
-        </div>
+
         <div id="form">
             <form action="#" id="form_container" class="container">
                 <h2 id="titleofForm">Patient's <span>SignUP</span></h2>
@@ -41,6 +40,7 @@
             </form>
         </div>
     </div>
+    <script src="/library/notify.js"></script>
     <script>
         let arr = [];
         let form = document.getElementById("form_container");
@@ -64,21 +64,21 @@
             if (userdata["password"] === userdata["cpassword"]) {
                 arr.push(userdata);
             } else {
-                alert("Given Passwords Are Not Match")
+                Notify.error("Given Passwords Are Not Match")
                 return; // add this line to prevent redirecting to the next page
             }
 
 
             if (window.localStorage.getItem("Patient_List") === null) {
                 window.localStorage.setItem("Patient_List", JSON.stringify(arr));
-                alert("Successfully Account Created")
+                Notify.success("Successfully Account Created")
                 window.location.href = "./index.html";
             } else {
                 let local = window.localStorage.getItem("Patient_List");
                 let json = JSON.parse(local);
                 json.push(userdata);
                 window.localStorage.setItem("Patient_List", JSON.stringify(json));
-                alert("Successfully Account Created")
+                Notify.success("Successfully Account Created")
                 window.location.href = "./index.html";
 
             }

@@ -93,7 +93,7 @@ li_nav_link3.setAttribute("class", "nav-link");
 ul_menu_links.append(li_nav_link3);
 
 let a_Order_details = document.createElement("a");
-a_Order_details.setAttribute("href", "#");
+a_Order_details.setAttribute("href", "/assest/pages/Volunteerlist.html");
 li_nav_link3.append(a_Order_details);
 
 let i_bell_icon = document.createElement("i");
@@ -110,7 +110,7 @@ li_nav_link4.setAttribute("class", "nav-link");
 ul_menu_links.append(li_nav_link4);
 
 let a_Cart = document.createElement("a");
-a_Cart.setAttribute("href", "/assest/pages/chatroom.html");
+a_Cart.setAttribute("href", "/assest/pages/chatroom (2).html");
 li_nav_link4.append(a_Cart);
 
 let i_cart_add_icon = document.createElement("i");
@@ -161,7 +161,7 @@ li_nav_link5_1.setAttribute("class", "nav-link");
 ul_menu_links.append(li_nav_link5_1);
 
 let a_Profil = document.createElement("a");
-a_Profil.setAttribute("href", "/assest/pages/profile.html");
+a_Profil.setAttribute("href", "/User_Personas/Doctor/pages/profile.html");
 li_nav_link5_1.append(a_Profil);
 
 let i_user_ico = document.createElement("i");

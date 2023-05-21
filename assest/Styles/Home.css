@@ -409,8 +409,7 @@
 
  }
 
- #solo-post img,
- video {
+ #solo-post .profile-post {
      height: 30em;
      width: 45em;
      margin-left: 2em;
@@ -433,23 +432,23 @@
  }
 
  .Post {
-     background-color: yellow;
-     border-radius: 1em;
+
+     height: 2em;
+     width: 2em;
      border: none;
-     padding: 0.9em 1.8em;
      margin-left: 2.2em;
-     margin-right: 11px;
+     margin-right: 2px;
      cursor: pointer;
+     color: green;
 
  }
 
  .cancel {
-     background-color: rgb(255, 55, 0);
-     border-radius: 1em;
      border: none;
-     padding: 0.8em 1.6em;
+     height: 2em;
+     width: 2em;
      cursor: pointer;
-     margin-left: 2.2em;
+     margin-left: 0.4em;
  }
 
  ;

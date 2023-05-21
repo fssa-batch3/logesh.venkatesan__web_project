@@ -23,10 +23,11 @@
             <form action="#" id="form_container" class="container">
                 <h2 id="titleofForm">Doctor's <span>Sign UP</span></h2>
                 <input type="text" id="Username" placeholder="Enter User Name" pattern="[A-Za-z]{3,32}" required>
-                <input type="email" placeholder="Enter Your Email" id="email" required>
+                <input type="text" placeholder="Enter Your Email" id="email"
+                    pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}$" required>
                 <input type="url" name="profile pic" id="Profile" placeholder="Enter profile URL" required>
-                <input type="number" placeholder="Enter Your Whatsapp Number" id="number" pattern="[0-9]{1,10}"
-                    required>
+                <input type="text" value="+918270852018" placeholder="Enter Your Whatsapp Number" id="number"
+                    pattern="^\+91[789]\d{9}$" required>
                 <select name="Specialist" id="Special">
                     <option value="General psychiatrists">General psychiatrists</option>
                     <option value="Child and adolescent psychiatrists">Child and adolescent psychiatrists</option>
@@ -38,7 +39,8 @@
                     <option value="Psychopharmacologists">Psychopharmacologists</option>
                     <option value="Psychotherapists">Psychotherapists</option>
                 </select>
-                <input type="textarea" placeholder="Enter something about You" id="aboutdoc">
+                <input type="textarea" placeholder="Enter something about You" pattern="^[a-zA-Z0-9\s,\.-]+$"
+                    id="aboutdoc" required>
                 <input type="password" name="cpass"
                     title="Password must contain: Minimum 8 characters atleast 1 Alphabet and 1 Number"
                     placeholder="Enter Password" id="password" minlength="8" required

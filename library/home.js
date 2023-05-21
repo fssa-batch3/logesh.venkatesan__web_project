@@ -1,6 +1,7 @@
 let PostedData = JSON.parse(localStorage.getItem("PostedData"));
 console.log(PostedData);
-
+// let Name = JSON.parse(localStorage.getItem("Doctor's_login"));
+// let name = PostedData.find()
 for (let i = 0; i < PostedData.length; i++) {
 
     let cardData = document.getElementById("Home");
@@ -34,13 +35,16 @@ for (let i = 0; i < PostedData.length; i++) {
 
 
     let Post_img = document.createElement("img");
+    Post_img.setAttribute("class", "profile-post");
     Post_img.src = PostedData[i]["Video_URL"];
     card.append(Post_img);
 
-    let edit = document.createElement("button");
+    let edit = document.createElement("img");
     edit.setAttribute("class", "Post");
+    edit.title = "Edit";
     edit.setAttribute("id", PostedData[i]["id"]);
-    edit.innerText = "Edit";
+    edit.src = "/assest/images/Images/Banner Image/Edit.png";
+    edit.setAttribute("alt", "Edit");
     edit.addEventListener("click", function () {
         let main = this.closest("#post-section");
         console.log(main);
@@ -53,10 +57,12 @@ for (let i = 0; i < PostedData.length; i++) {
     });
     card.append(edit);
 
-    let del = document.createElement("button");
+    let del = document.createElement("img");
     del.setAttribute("class", "cancel");
+    del.title = "Delete";
     del.setAttribute("id", PostedData[i]["id"]);
-    del.innerText = "X";
+    del.setAttribute("alt", "delete");
+    del.src = "/assest/images/Images/Banner Image/Delete.png";
     del.addEventListener("click", function () {
         if (confirm("Are you sure?")) {
             let jsonData = JSON.parse(localStorage.getItem("PostedData"));
@@ -74,6 +80,14 @@ for (let i = 0; i < PostedData.length; i++) {
     })
     card.append(del);
 
+    let comment = document.createElement("img");
+    comment.setAttribute("class", "comment");
+    comment.title = "Comment";
+    comment.setAttribute("id", PostedData[i]["id"]);
+    comment.setAttribute("alt", "comment");
+    comment.src = "/assest/images/Images/Banner Image/comment.png";
+    card.appendChild(comment);
+
     let Title = document.createElement("h2");
     Title.setAttribute("id", "discription_title");
     Title.innerText = PostedData[i]["Video_title"];
@@ -86,7 +100,7 @@ for (let i = 0; i < PostedData.length; i++) {
     card.append(Description);
 
     console.log(card1);
-    console.log(parent)
+    console.log(parent);
 
 }
 ;

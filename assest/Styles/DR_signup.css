@@ -9,7 +9,8 @@
   }
 
   body {
-      background-image: url("/User_Personas/Patient/assests/images/Login_Page_Doc_img.png");
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("/User_Personas/Patient/assests/images/Login_Page_Doc_img.png");
+
       background-repeat: no-repeat;
       background-size: cover;
       height: 873px;
@@ -30,6 +31,8 @@
 
   #HoleCard #ImageContainer img {
       height: 42em;
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
       width: 30em;
       border-bottom-left-radius: 2em;
       border-top-left-radius: 2em;

@@ -2457,9 +2457,8 @@
         // Remove comments and folding whitespace and replace multiple-spaces with a single space
         return s
             .replace(/\([^()]*\)|[\n\t]/g, ' ')
-            .replace(/(\s\s+)/g, ' ')
-            .replace(/^\s\s*/, '')
-            .replace(/\s+$/, '');
+            .replace(/\s{2,}/g, ' ')
+            .trim();
 
     }
 

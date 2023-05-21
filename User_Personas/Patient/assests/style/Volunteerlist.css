@@ -75,7 +75,7 @@ body::-webkit-scrollbar {
     margin-top: 1em;
     border-radius: 1em;
     border: 1px rgb(1, 1, 0) solid;
-    margin-top: 0.5em;
+
     margin-left: 4.5em;
     background-color: yellow;
 }

@@ -121,14 +121,14 @@ body::-webkit-scrollbar {
     color: yellow;
     font-size: 2.3em;
     text-align: center;
-    font-family: 'Delicious Handrawn', 'cursive';
+    font-family: 'Dancing Script', cursive, sans-serif;
 }
 
 #home #contentprof .title span {
     color: rgb(255, 255, 255);
     font-size: 1.8em;
     text-align: center;
-    font-family: 'Delicious Handrawn', 'cursive';
+    font-family: 'Dancing Script', cursive, sans-serif;
 }
 
 #home #contentprof {
@@ -141,7 +141,7 @@ body::-webkit-scrollbar {
     font-size: 2em;
     font-weight: 300;
     text-align: center;
-    font-family: 'Delicious Handrawn', 'cursive';
+    font-family: 'Dancing Script', cursive, sans-serif;
 }
 
 #div .value {
@@ -149,5 +149,5 @@ body::-webkit-scrollbar {
     font-size: 2.3em;
     font-weight: 300;
     text-align: center;
-    font-family: 'Delicious Handrawn', 'cursive';
+    font-family: 'Dancing Script', cursive, sans-serif;
 }

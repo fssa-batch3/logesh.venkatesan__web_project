@@ -220,7 +220,7 @@
      background-color: transparent;
      display: flex;
      align-items: center;
-     height: 100%;
+
      width: 100%;
      border-radius: 6px;
      text-decoration: none;
@@ -326,7 +326,7 @@
  .home {
      position: absolute;
      top: 0;
-     top: 0;
+
      left: 250px;
      height: 100vh;
      width: calc(100% - 250px);

@@ -17,7 +17,7 @@ body {
 }
 
 h1 {
-    font-family: 'Acme';
+    font-family: 'Bangers', cursive, sans-serif;
     font-style: normal;
     font-weight: 400;
     color: darkorange;
@@ -26,7 +26,7 @@ h1 {
 }
 
 h1 span {
-    font-family: 'Acme';
+    font-family: 'Bangers', cursive, sans-serif;
     font-style: normal;
     font-weight: 450;
     color: rgb(0, 0, 0)
@@ -51,7 +51,7 @@ h1 span {
     padding: 8px 20px;
     margin: 0px auto;
     background-color: coral;
-    margin: 20px 5em;
+
 }
 
 .editbtn {
@@ -89,13 +89,13 @@ h1 span {
     margin-top: 1em;
     background-color: orange;
     border: none;
-    font-size: large;
+
     border-radius: 5px;
-    font-family: 'Acme';
+    font-family: 'Bangers', cursive, sans-serif;
     font-style: normal;
     font-weight: 450;
     color: rgb(0, 0, 0);
-    background-color: orange;
+
     display: block;
     font-size: 16px;
     width: 100%;

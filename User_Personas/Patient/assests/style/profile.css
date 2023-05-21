@@ -222,7 +222,7 @@
      background-color: transparent;
      display: flex;
      align-items: center;
-     height: 100%;
+
      width: 100%;
      border-radius: 6px;
      text-decoration: none;
@@ -328,7 +328,7 @@
  .home {
      position: absolute;
      top: 0;
-     top: 0;
+
      left: 250px;
      height: 100vh;
      width: calc(100% - 250px);
@@ -477,14 +477,14 @@
      color: yellow;
      font-size: 2.3em;
      text-align: center;
-     font-family: 'Delicious Handrawn', 'cursive';
+     font-family: 'Indie Flower', cursive, sans-serif;
  }
 
  #home #contentprof .title span {
      color: rgb(255, 255, 255);
      font-size: 1.8em;
      text-align: center;
-     font-family: 'Delicious Handrawn', 'cursive';
+     font-family: 'Indie Flower', cursive, sans-serif;
  }
 
  #home #contentprof {
@@ -497,7 +497,7 @@
      font-size: 2em;
      font-weight: 300;
      text-align: center;
-     font-family: 'Delicious Handrawn', 'cursive';
+     font-family: 'Indie Flower', cursive, sans-serif;
  }
 
  #div .value {
@@ -505,5 +505,5 @@
      font-size: 2.3em;
      font-weight: 300;
      text-align: center;
-     font-family: 'Delicious Handrawn', 'cursive';
+     font-family: 'Indie Flower', cursive, sans-serif;
  }

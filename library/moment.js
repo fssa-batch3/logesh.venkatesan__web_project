@@ -2459,7 +2459,8 @@
             .replace(/\([^()]*\)|[\n\t]/g, ' ')
             .replace(/(\s\s+)/g, ' ')
             .replace(/^\s\s*/, '')
-            .replace(/\s\s*$/, '');
+            .replace(/\s+$/, '');
+
     }
 
     function checkWeekday(weekdayStr, parsedInput, config) {
@@ -5558,7 +5559,8 @@
         months %= 12;
 
         // inspired by https://github.com/dordille/moment-isoduration/blob/master/moment.isoduration.js
-        s = seconds ? seconds.toFixed(3).replace(/\.?0+$/, '') : '';
+        s = seconds ? seconds.toFixed(3).replace(/(?:\.0+)?$/, '') : '';
+
 
         totalSign = total < 0 ? '-' : '';
         ymSign = sign(this._months) !== sign(total) ? '-' : '';

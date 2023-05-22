@@ -14,6 +14,12 @@ let div_text_logo_text = document.createElement("div");
 div_text_logo_text.setAttribute("class", "text logo-text");
 div_image_text.append(div_text_logo_text);
 
+let logo = document.createElement("img");
+logo.src = "/assest/images/Images/logos/new_logo.png"
+logo.setAttribute("alt", "logo");
+logo.setAttribute("class", "logo");
+div_image_text.append(logo);
+
 let span_name = document.createElement("span");
 span_name.setAttribute("class", "name");
 span_name.innerHTML = "FreshBYE";
@@ -179,7 +185,7 @@ li_nav_link6.setAttribute("class", "nav-link");
 ul_menu_links.append(li_nav_link6);
 
 let a_About_us = document.createElement("a");
-a_About_us.setAttribute("href", "/assest/pages/index.html");
+a_About_us.setAttribute("href", "/index.html");
 li_nav_link6.append(a_About_us);
 
 let i_pie_chart_alt_icon = document.createElement("i");

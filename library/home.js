@@ -1,4 +1,5 @@
 let PostedData = JSON.parse(localStorage.getItem("PostedData"));
+let userId = window.localStorage.getItem("Current_User_id");
 console.log(PostedData);
 // let Name = JSON.parse(localStorage.getItem("Doctor's_login"));
 // let name = PostedData.find()
@@ -81,11 +82,12 @@ for (let i = 0; i < PostedData.length; i++) {
     card.append(del);
 
     let comment = document.createElement("img");
+
     comment.setAttribute("class", "comment");
     comment.title = "Comment";
     comment.setAttribute("id", PostedData[i]["id"]);
     comment.setAttribute("alt", "comment");
-    comment.src = "/assest/images/Images/Banner Image/comment.png";
+    comment.src = "/assest/images/Images/Banner Image/comment 12.png";
     card.appendChild(comment);
 
     let Title = document.createElement("h2");

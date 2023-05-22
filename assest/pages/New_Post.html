@@ -40,7 +40,7 @@
         function Preview() {
             Image_prev.src = Video_URL.value;
         }
-
+        let userId = window.localStorage.getItem("Current_User_id");
 
         form.addEventListener("click", function (event) {
             event.preventDefault();
@@ -68,6 +68,7 @@
             postdata["Video_URL"] = Video_URL;
             postdata["Video_title"] = Video_title;
             postdata["Video_Description"] = Video_Description;
+            postdata["User_ID"] = userId;
             postdata.id = id;
 
 

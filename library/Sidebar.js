@@ -77,39 +77,6 @@ span_home_alt_icon.setAttribute("class", "text nav-text");
 span_home_alt_icon.innerHTML = "Home";
 a_home_page.append(span_home_alt_icon);
 
-let li_nav_link2 = document.createElement("li");
-li_nav_link2.setAttribute("class", "nav-link");
-ul_menu_links.append(li_nav_link2);
-
-let a_sell_page = document.createElement("a");
-a_sell_page.setAttribute("href", "/assest/pages/Patient.html");
-li_nav_link2.append(a_sell_page);
-
-let i_bar_chart_alt_2_icon = document.createElement("i");
-i_bar_chart_alt_2_icon.setAttribute("class", "bx bx-bar-chart-alt-2 icon");
-a_sell_page.append(i_bar_chart_alt_2_icon);
-
-let span_bar_chart_alt_2_icon = document.createElement("i")
-span_bar_chart_alt_2_icon.setAttribute("class", "text nav-text");
-span_bar_chart_alt_2_icon.innerHTML = "Patients";
-a_sell_page.append(span_bar_chart_alt_2_icon);
-
-let li_nav_link3 = document.createElement("li");
-li_nav_link3.setAttribute("class", "nav-link");
-ul_menu_links.append(li_nav_link3);
-
-let a_Order_details = document.createElement("a");
-a_Order_details.setAttribute("href", "/assest/pages/Volunteerlist.html");
-li_nav_link3.append(a_Order_details);
-
-let i_bell_icon = document.createElement("i");
-i_bell_icon.setAttribute("class", "bx bx-user icon");
-a_Order_details.append(i_bell_icon);
-
-let span_bell_icon = document.createElement("i")
-span_bell_icon.setAttribute("class", "text nav-text");
-span_bell_icon.innerHTML = "Volunteer";
-a_Order_details.append(span_bell_icon);
 
 let li_nav_link4 = document.createElement("li");
 li_nav_link4.setAttribute("class", "nav-link");
@@ -137,7 +104,7 @@ b_Cart.setAttribute("href", "/assest/pages/Byevideo.html");
 li_nav_link41.append(b_Cart);
 
 let ib_cart_add_icon = document.createElement("i");
-ib_cart_add_icon.setAttribute("class", "bx bx-chat icon");
+ib_cart_add_icon.setAttribute("class", "bx bx-play icon");
 b_Cart.append(ib_cart_add_icon);
 
 let Span_cart_add_icon = document.createElement("i")
@@ -150,16 +117,16 @@ li_nav_link5.setAttribute("class", "nav-link");
 ul_menu_links.append(li_nav_link5);
 
 let a_Profile = document.createElement("a");
-a_Profile.setAttribute("href", "/assest/pages/Appointment.html");
+a_Profile.setAttribute("href", "/assest/pages/Invite_page.html");
 li_nav_link5.append(a_Profile);
 
 let i_user_icon = document.createElement("i");
-i_user_icon.setAttribute("class", "bx bx-user icon");
+i_user_icon.setAttribute("class", "bx bx-plus icon");
 a_Profile.append(i_user_icon);
 
 let span_user_icon = document.createElement("i");
 span_user_icon.setAttribute("class", "text nav-text");
-span_user_icon.innerHTML = "Appointments";
+span_user_icon.innerHTML = "Invite";
 a_Profile.append(span_user_icon);
 
 let li_nav_link5_1 = document.createElement("li");
@@ -167,7 +134,7 @@ li_nav_link5_1.setAttribute("class", "nav-link");
 ul_menu_links.append(li_nav_link5_1);
 
 let a_Profil = document.createElement("a");
-a_Profil.setAttribute("href", "/User_Personas/Doctor/pages/profile.html");
+a_Profil.setAttribute("href", "/assest/pages/profile.html");
 li_nav_link5_1.append(a_Profil);
 
 let i_user_ico = document.createElement("i");

@@ -6,16 +6,10 @@
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
       text-decoration: none;
-
-
-  }
-
-  button {
-      cursor: pointer;
   }
 
   body {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("/assest/images/Images/Banner Image/my background.webp");
+      background-image: url("/assest/images/Images/Banner Image/logbg.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       height: 873px;
@@ -25,21 +19,23 @@
       display: flex;
       flex-direction: row;
       height: 25em;
-      width: 52em;
-      border: 0.09px rgb(255, 242, 0) solid;
+      width: 25em;
+      border: 0.09px rgb(255, 251, 0) solid;
       border-radius: 2em;
       box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-      margin: 6em auto;
-
+      margin: 9em auto;
+      background-color: rgba(255, 255, 255, 0.05);
 
   }
 
   #HoleCard #ImageContainer img {
-      height: 24.89em;
-      width: 27em;
-      border-radius: 2em;
+      height: 25em;
+      width: 25em;
+      border-bottom-left-radius: 2em;
+      border-top-left-radius: 2em;
       box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
       margin-left: 0px;
+      background-color: rgba(0, 0, 0, 6);
   }
 
 
@@ -48,7 +44,7 @@
       flex-direction: column;
       justify-content: space-between;
       row-gap: 1em;
-      margin: 3em 2em;
+      margin: 4em 2em;
 
 
   }
@@ -120,7 +116,6 @@
 
   small {
       color: white;
-      text-align: center;
   }
 
   small span a {

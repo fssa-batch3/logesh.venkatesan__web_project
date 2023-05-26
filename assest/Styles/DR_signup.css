@@ -9,7 +9,7 @@
   }
 
   body {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("/User_Personas/Patient/assests/images/Login_Page_Doc_img.png");
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("/assest/images/Images/Banner Image/signup.webp");
 
       background-repeat: no-repeat;
       background-size: cover;
@@ -144,4 +144,8 @@
 
   .menu {
       margin-top: 25px;
+  }
+
+  a p {
+      color: greenyellow;
   }

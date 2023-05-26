@@ -945,9 +945,10 @@ body::-webkit-scrollbar {
     width: 64em;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     /* margin-left: -   26em; */
-    margin-top: 1.3em;
+    margin-top: 6.3em;
     display: flex;
     position: relative;
+    margin-left: 10em;
 
     /* THAT MARGIN */
 
@@ -956,6 +957,7 @@ body::-webkit-scrollbar {
 /* First small container */
 
 .chatroom-profilename-container {
+    display: flex;
     background-color: var(--white);
     border-radius: 3em;
     height: 44em;
@@ -976,7 +978,7 @@ body::-webkit-scrollbar {
     width: 22em;
     border-radius: 3em;
     margin-top: 0em;
-    margin-left: 03em;
+    margin-left: 01em;
 
 }
 
@@ -1017,7 +1019,7 @@ body::-webkit-scrollbar {
 
 .chatroom-profile-div-heading {
     padding-top: 0em;
-    padding-bottom: 0em;
+    padding-bottom: 0.7em;
     padding-left: 0.8em;
     font-weight: 600;
     margin-top: -0.2em;
@@ -1078,6 +1080,7 @@ body::-webkit-scrollbar {
 
 .chatroom-profilename-container {
     display: flex;
+
 }
 
 .chatroom-chatside-div-nav-profile {
@@ -1313,24 +1316,22 @@ body::-webkit-scrollbar {
 /* BYEVIDEO BELOW */
 .profile-img-4 {
     width: 300px;
-    height: 169px;
-
+    height: 239px;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
-.video-inner-contain-div,
-iframe {
-    height: 800px;
-    width: 1090px;
-    border-radius: 0em;
-    margin-left: 0em;
+.video-inner-contain-div {
+    height: 700px;
+    width: 500px;
+    border-radius: 4em;
+    margin-left: 4em;
 }
 
 .Videos-list-scrolls {
-    height: 800px;
-    margin-left: 10em;
-    margin-top: 3em;
-    width: 1090px;
+    height: 700px;
+    width: 604px;
     background: rgb(0, 0, 0);
     overflow-Y: scroll;
     font: 100%/1.4 serif;
@@ -1343,7 +1344,9 @@ iframe {
 }
 
 .chatroom-chatside-div-container-2 {
-    margin-left: 2em;
+    margin-left: 28em;
+    margin-top: 8em;
+    position: fixed;
 }
 
 /* FORGOT PASSWORD -1 */
@@ -1634,11 +1637,50 @@ a {
     background-color: var(--Orange);
 }
 
-#addvideo {
-    padding: 1em 2.5em;
-    margin-left: 6em;
-    background-color: green;
+#card1 {
+    height: 42em;
+    width: 40em;
+    position: relative;
+    margin-top: 2em;
+}
+
+#chat {
+    height: 3em;
+    width: 38em;
+    margin-left: 1em;
     border-radius: 2em;
-    color: black;
-    font-weight: 800;
+
+}
+
+#chatdiv {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+}
+
+#send {
+    height: 3em;
+    width: 8em;
+    margin-left: 1em;
+    border-radius: 2em;
+    background-color: yellow;
+}
+
+#profile {
+    color: rgb(249, 238, 24);
+    margin-left: 1em;
+    padding: 0.4em;
+    border: 2px solid black;
+    width: 10em;
+    text-align: center;
+    border-radius: 2em;
+}
+
+#chat12 {
+    height: 2em;
+    width: 18em;
+    margin-top: 2em;
+    margin-left: 2em;
+    background-color: yellow;
+    text-align: center;
 }

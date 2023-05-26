@@ -26,7 +26,7 @@
             </div>
             <button type="submit" id="btn">Post Now</button>
         </form>
-        <img src="/assest/images/Images/Banner Image/Delete.png" alt="">
+
     </div>
     <script src="/library/notify.js"></script>
     <script>
@@ -49,9 +49,7 @@
 
             let Video_title = document.getElementById("mname").value;
             let Video_Description = document.getElementById("Lname").value;
-            console.log(Video_URL);
-            console.log(Video_title);
-            console.log(Video_Description);
+
             let id = self.crypto.randomUUID();
 
             if (Video_URL.length == 0) {
@@ -69,6 +67,7 @@
             postdata["Video_title"] = Video_title;
             postdata["Video_Description"] = Video_Description;
             postdata["User_ID"] = userId;
+
             postdata.id = id;
 
 

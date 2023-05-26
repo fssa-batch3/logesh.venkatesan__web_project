@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/library/notify.js">
+    <link rel="stylesheet" href="/assest/Styles/EditProfile.css">
+    <title>Doctor Login | FreshBYE</title>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="logo">
+            <a href="#"><span>Fresh</span>BYE</a>
+        </div>
+
+    </div>
+    <div id="HoleCard">
+        <div id="ImageContainer">
+            <img src="/assest/images/Editprofile.jpg" alt="DoctorImg" id="LoginImg">
+        </div>
+        <div id="form">
+            <form action="#" id="form_container" class="container">
+                <h2 id="titleofForm">Edit <span>Profile</span></h2>
+                <input type="text" id="Username" title="User Must Fill All Credential" placeholder="Enter User Name"
+                    pattern="[A-Za-z]{3,32}" required>
+
+                <input type="url" name="profile pic" title="User Must Fill All Credential" id="Profile"
+                    placeholder="Enter profile URL" required>
+                <input type="tel" placeholder="Enter Mobile" title="User Must Fill All Credential" Your Whatsapp Number"
+                    id="number" pattern="^\+91[789]\d{9}$" required>
+
+
+                <button id="edited">Save</button>
+                <small id="createacc">I want to<span><a href="/assest/pages/profile.html"> Go Back</a></span></small>
+            </form>
+        </div>
+    </div>
+    <script src="/library/notify.js"></script>
+    <script>
+        let doctorCategory = JSON.parse(localStorage.getItem("Doctor_category")); //parse data from local storage
+        let Doctor_id = window.localStorage.getItem("Current_User_id");
+        let Doctor_data = doctorCategory.find((doc) => doc.Email === Doctor_id);
+
+        document.getElementById("Username").value = Doctor_data["Username"];
+        document.getElementById("Profile").value = Doctor_data["Profile"];
+        document.getElementById("number").value = Doctor_data["Contact"];
+
+        console.log(Doctor_data);
+        let edited = document.getElementById("edited")
+
+        edited.addEventListener("click", function update() {
+            event.preventDefault();
+            let editedUserName = document.getElementById("Username").value;
+            let editedProfile = document.getElementById("Profile").value;
+            let editedNumber = document.getElementById("number").value;
+
+
+            // update the Doctor_data object directly
+            Doctor_data["Username"] = editedUserName;
+            Doctor_data["Profile"] = editedProfile;
+            Doctor_data["Contact"] = editedNumber;
+
+
+
+            // update the Doctor_category array in local storage
+            let updatedCategory = doctorCategory.map((doc) => {
+                if (doc.Email === Doctor_id) {
+                    return Doctor_data;
+                } else {
+                    return doc;
+                }
+            });
+
+            if (document.getElementById("Username").value.length == 0) {
+                Notify.error("Username Input Need Some Data in it");
+                console.log("Working...");
+
+            } else if (document.getElementById("Profile").value.length === 0) {
+                Notify.error("Profile Input Need  Some Data in it");
+                console.log("Working...");
+
+            } else if (document.getElementById("number").value.length
+                !== 13) {
+                Notify.error("Mobile Number should be Contains 10 Digits");
+                console.log("Working...");
+
+            } else {
+                localStorage.setItem("Doctor_category", JSON.stringify(updatedCategory));
+                Notify.success("Update successful!");
+                console.log("Working...");
+                location.href = "/assest/pages/profile.html";
+            }
+            console.log("Working...");
+        }
+
+        )
+
+
+
+
+    </script>
+
+</body>
+
+</html>

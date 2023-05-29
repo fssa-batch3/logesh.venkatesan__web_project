@@ -632,3 +632,36 @@
      font-size: 1.2em;
      margin-top: -3px;
  }
+
+ #commentcontainer .ListHoleContainer {
+     display: flex;
+     padding: 1.4em 2em;
+     background-color: rgb(255, 183, 50);
+     border: 1px solid brown;
+     margin-bottom: 0.09em;
+
+ }
+
+ #commentcontainer .ListHoleContainer:hover {
+     display: flex;
+     padding: 1.4em 2em;
+     background-color: rgb(116, 78, 7);
+     border: 1px solid brown;
+     margin-bottom: 0.09em;
+
+
+ }
+
+ .Profile {
+     height: 4em;
+     width: 4em;
+     border-radius: 3em;
+ }
+
+ .Username {
+     font-size: 25px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     margin-top: 0.6em;
+     margin-left: 1em;
+
+ }

@@ -64,7 +64,7 @@ for (let i = PostedData.length - 1; i >= 0; i--) {
 
     comment.setAttribute("class", "comment");
     comment.title = "Comment";
-    comment.setAttribute("data-id", PostedData[i]["id"]); ``
+    comment.setAttribute("data-id", PostedData[i]["id"]);
     comment.setAttribute("alt", "comment");
     comment.src = "/assest/images/Images/Banner Image/comment 12.png";
     comment.addEventListener("click", reload);

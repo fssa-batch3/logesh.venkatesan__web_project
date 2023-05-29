@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!------<title> Website Layout | CodingLab</title>------>
+    <link rel="stylesheet" href="/assest/Styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <title>Welcome| FreshBYE</title>
+</head>
+
+
+<body>
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <a href="#"><span>Fresh</span>BYE</a>
+            </div>
+
+        </div>
+    </nav>
+    <div class="img"></div>
+    <div class="center">
+        <div class="title">"What type of user</div>
+        <div class="sub_title">are you?"</div>
+
+
+        <div class="btns">
+            <Select id="select_persona" class="personas" value="None">
+                <option value="Doctor" id="val_doc">I am a Doctor</option>
+                <option value="Volunteer" id="val_Vol">I am a Volunteer</option>
+                <option value="Patient" id="val_Pat">I am a Patient</option>
+            </Select>
+            <button id="button">Let's Start</button>
+        </div>
+    </div>
+    <script>
+        let submit = document.getElementById("button");
+        submit.addEventListener("click", function (event) {
+            event.preventDefault();
+            let User_Persona = document.getElementById("select_persona").value
+
+            console.log(User_Persona);
+
+            if (User_Persona === "Doctor") {
+                window.localStorage.setItem("Current_user_Persona", "Doctor");
+                window.location.href = "/User_Personas/Doctor/pages/index.html";
+            } else if (User_Persona === "Volunteer") {
+                window.localStorage.setItem("Current_user_Persona", "Volunteer");
+                window.location.href = "/User_Personas/Volunteer/pages/index.html";
+            } else {
+                window.localStorage.setItem("Current_user_Persona", "Patient");
+                window.location.href = "/User_Personas/Patient/pages/index.html";
+            }
+
+        })
+    </script>
+</body>
+
+</html>

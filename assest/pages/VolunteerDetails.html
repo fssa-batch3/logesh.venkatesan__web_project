@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteers |FreshBYE</title>
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="/assest/Styles/Home.css">
+    <link rel="stylesheet" href="/assest/Styles/Volunteerlist.css">
+
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <a href="/assest/pages/chatroom (2).html">
+        <!--<title>Dashboard Sidebar Menu</title>-->
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!--<img src="logo.png" alt="">-->
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Fresh<Span>BYE</Span></span>
+                    <span class="profession">Open Your Mind</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle' style="color:black;"></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="search-box">
+                        <i class='bx bx-search icon'></i>
+                        <input type="text" placeholder="Search...">
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Profile.png" alt="Profile_icon">
+                            <span class="text nav-text">My Profile</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Doctor.png" alt="Doctor_icon">
+                            <span class="text nav-text">Doctor</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Volunteer.png" alt="Volunteer">
+                            <span class="text nav-text">Volunteer</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Chat.png" alt="Chat_icon">
+                            <span class="text nav-text">Chats</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-heart icon'></i>
+                            <span class="text nav-text">Likes</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <img src="../assests/Images/Appointment.png" alt="Appointment_icon">
+                            <span class="text nav-text">Appointments</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+    </nav>
+
+    <section id="home" class="home">
+        <h1 id="h1header">Volunteers<span id="h1headerspan"> List</span></h1>
+        <div id="cardcon">
+
+        </div>
+        <div class="Add_post">
+            <a href="./New_Post.html"><button class="post">Book Appointment</button></a>
+        </div>
+    </section>
+
+    <script>
+        const body = document.querySelector('body'),
+            sidebar = body.querySelector('nav'),
+            toggle = body.querySelector(".toggle"),
+            searchBtn = body.querySelector(".search-box"),
+            modeSwitch = body.querySelector(".toggle-switch"),
+            modeText = body.querySelector(".mode-text");
+
+
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        })
+
+        searchBtn.addEventListener("click", () => {
+            sidebar.classList.remove("close");
+        })
+        //card creating process
+
+
+
+        const search_url = window.location.search;
+        const param = new URLSearchParams(search_url);
+        const get_url = param.get("id");
+        console.log(get_url)
+        let volunteer = JSON.parse(localStorage.getItem("Volunteer_Detail"));
+        console.log(volunteer);
+
+        let find_user = volunteer.find(function (event) {
+            let Volunteers_id = event["id"];
+            if (get_url == Volunteers_id) {
+                return true;
+            }
+        });
+
+        let image = document.getElementById("image");
+        let name1 = document.getElementById("name")
+        let about = document.getElementById("about");
+
+        image.setAttribute("src", find_user["Profile"]);
+        name1.innerText = find_user["Username"];
+        about.innerText = find_user["aboutpat"]
+
+        //function for find the card's unique id and store in ls
+
+
+
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+<!-- <body class="main-parent">
+    <div class="containerOfHole" id="containerOfHole"></div>
+   
+</body>
+
+
+</html> -->

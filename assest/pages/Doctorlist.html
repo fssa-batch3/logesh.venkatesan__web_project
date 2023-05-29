@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home |FreshBYE</title>
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="/assest/Styles/Home.css">
+    <link rel="stylesheet" href="/User_Personas/Patient/assests/style/Doctorlist.css">
+
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--<title>Dashboard Sidebar Menu</title>-->
+</head>
+
+<body>
+
+    <section id="home" class="home">
+        <h1 id="h1header">Doctors<span id="h1headerspan"> List</span></h1>
+        <div id="cardcon">
+
+        </div>
+        <div class="Add_post">
+            <a href="./New_Post.html"><button class="post">Book Appointment</button></a>
+        </div>
+    </section>
+    <script src="/library/Sidebar.js"></script>
+    <script>
+
+
+
+        let doctor = JSON.parse(localStorage.getItem("Doctor_category"));
+        console.log(doctor);
+
+        for (let i = 0; i < doctor.length; i++) {
+            let card = document.createElement("div");
+            card.setAttribute("class", "card");
+            console.log(card);
+
+            let img = document.createElement("img");
+            img.setAttribute("class", "mini-img-1");
+            img.setAttribute("src", doctor[i]['Profile']);
+            card.append(img);
+            // console.log(img);
+
+            let Name = document.createElement("h2");
+            Name.setAttribute("class", "min-heading-2");
+            Name.innerText = "Dr. " + doctor[i]['Username'];
+            card.append(Name);
+            // console.log(Name);
+            let Specialist = document.createElement("h3");
+            Specialist.setAttribute("class", "min-heading-2");
+            Specialist.innerText = doctor[i]['Special'];
+            card.append(Specialist);
+
+
+            let Details = document.createElement('button');
+            Details.innerText = 'Details';
+            Details.setAttribute("class", "detailsbtn");
+            // button.setAttribute("onclick", "deldata()")
+            card.append(Details);
+            // console.log(button1);
+
+            let container = document.getElementById("cardcon");
+            container.append(card);
+        }
+
+        //function for find the card's unique id and store in ls
+        let Edit = document.querySelectorAll("button.editbtn");
+        Edit.forEach(function (findId) {
+            findId.addEventListener("click", function () {
+                let parent = this.closest(".card")
+
+                const Id = parent.querySelector(".editbtn").getAttribute("id")
+                console.log(Id);
+                localStorage.setItem("uuid", JSON.stringify(Id));
+                confirm("Are you sure to Edit")
+                window.location.href = "./EditDoctorsList.html";
+            })
+        });
+
+
+
+        let deleteButtons = document.querySelectorAll("button.detailsbtn");
+        deleteButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                if (confirm("Are you sure?")) {
+                    let jsonData = JSON.parse(window.localStorage.getItem("doctordata"));
+                    let card = this.closest(".card");
+                    let id = card.querySelector(".editbtn").getAttribute("id");
+                    // assuming you set a data-id attribute on the card element
+                    console.log(id);
+
+
+                    let indexOf = jsonData.findIndex(obj => obj.id === id);
+                    console.log(indexOf);
+                    jsonData.splice(indexOf, 1);
+                    // // Save updated data to local storage
+                    window.localStorage.setItem("doctordata", JSON.stringify(jsonData));
+                    // // Redirect to Doctorslist page
+                    window.location.href = "./Doctorslist.html";
+                }
+            });
+        });
+
+
+
+
+
+        // modeSwitch.addEventListener("click", () => {
+        //     body.classList.toggle("dark");
+
+        //     if (body.classList.contains("dark")) {
+        //         modeText.innerText = "Light mode";
+        //     } else {
+        //         modeText.innerText = "Dark mode";
+
+        //     }
+        // });
+    </script>
+
+</body>
+
+</html>
+
+
+
+<!-- <body class="main-parent">
+    <div class="containerOfHole" id="containerOfHole"></div>
+   
+</body>
+
+
+</html> -->

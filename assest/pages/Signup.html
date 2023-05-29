@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assest/Styles/DR_signup.css">
+
+    <link rel="stylesheet" href="/library/notify.js">
+    <title>Doctor Login | FreshBYE</title>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="logo">
+            <a href="#"><span>Fresh</span>BYE</a>
+        </div>
+
+    </div>
+    <div id="HoleCard">
+
+        <div id="form">
+            <form action="#" id="form_container" class="container">
+                <h2 id="titleofForm">User <span>Sign UP</span></h2>
+                <input type="text" id="Username" value="Ravi" placeholder="Enter User Name" pattern="[A-Za-z]{3,32}"
+                    required>
+                <input type="text" value="Ravi@gmail.com" placeholder="Enter Your Email" id="email"
+                    pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}$" required>
+                <input type="url" name="profile pic" id="Profile" value="https://wallpapercave.com/wp/wp9353565.jpg"
+                    placeholder="Enter profile URL" required>
+                <input type="text" value="+918270852018" placeholder="Enter Your Whatsapp Number" id="number"
+                    pattern="^\+91[789]\d{9}$" required>
+
+                <input type="password" name="cpass"
+                    title="Password must contain: Minimum 8 characters atleast 1 Alphabet and 1 Number"
+                    value="loki123456" placeholder="Enter Password" id="password" minlength="8" required
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" id="password">
+                <input type="password" name="pass"
+                    title="Password must contain: Minimum 8 characters atleast 1 Alphabet and 1 Number"
+                    value="loki123456" placeholder="Confirm Password" id="cpassword" minlength="8" required
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" id="confirmPassword">
+                <a href="/assest/pages/generate.html">
+                    <!-- <p>🔃Generate Password</p> -->
+                </a>
+                <button>Login Now</button>
+                <small id="createacc">I Already Have a Account <span><a href="/assest/pages/login.html">Login
+                            Now</a></span></small>
+            </form>
+        </div>
+    </div>
+    <script src="/library/notify.js"></script>
+    <script src="/library/moment.js"></script>
+    <script>
+        let arr = [];
+        let form = document.getElementById("form_container");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let userdata = {};
+            const Username = document.getElementById("Username").value.trim();
+            const Email = document.getElementById("email").value.trim();
+            const Profile = document.getElementById("Profile").value.trim();
+            const Number_1 = document.getElementById("number").value.trim();
+
+            const password = document.getElementById("password").value.trim();
+            const cpassword = document.getElementById("cpassword").value.trim();
+
+            let id = self.crypto.randomUUID();
+            userdata["Username"] = Username;
+            userdata["Email"] = Email.toLowerCase();
+            userdata["Profile"] = Profile;
+            userdata["Contact"] = Number_1;
+
+            userdata["Password"] = password;
+            userdata["Cpassword"] = cpassword;
+            userdata.id = id;
+            if (userdata["Password"] === userdata["Cpassword"]) {
+                arr.push(userdata);
+            } else {
+                Notify.error("Password And Confirm Password Doesn't Match")
+                return;
+            }
+            if (window.localStorage.getItem("Doctor_category") === null) {
+                window.localStorage.setItem("Doctor_category", JSON.stringify(arr));
+                Notify.success("Successfully Created")
+            } else {
+                let local = window.localStorage.getItem("Doctor_category");
+                let json = JSON.parse(local);
+                json.push(userdata);
+                window.localStorage.setItem("Doctor_category", JSON.stringify(json));
+                Notify.success("Successfully Created")
+            }
+            window.location.href = "/assest/pages/login.html";
+        });
+
+
+    </script>
+</body>
+
+</html>

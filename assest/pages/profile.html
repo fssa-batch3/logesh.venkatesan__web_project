@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | FreshBYE</title>
+    <!----======== CSS ======== -->
+
+    <link rel="stylesheet" href="/library/notify.js">
+    <link rel="stylesheet" href="/assest/Styles/Home.css">
+    <link rel="stylesheet" href="/assest/Styles/Styles/profile.css">
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--<title>Dashboard Sidebar Menu</title>-->
+</head>
+
+<body oncontextmenu="return false;">
+    <section id="home" class="home">
+        <img src="" alt="" id="profimg">
+        <div id="contentprof">
+            <h1 class="title"><span class="sub-title"></span></h1>
+            <div id="div">
+                <h2 class="key">
+                    UserName:
+                </h2>
+                <h2 class="value" id="name"></h2>
+
+            </div>
+            <div id="div">
+                <h2 id="emailkey" class="key">
+                    Email:
+                </h2>
+                <h2 class="value" id="emailvalue"></h2>
+
+            </div>
+            <div id="div">
+                <h2 id="Numberkey" class="key">
+                    Number:
+                </h2>
+                <h2 class="value" id="Numbervalue"></h2>
+
+            </div>
+
+
+
+            <a href="./editProfile.html"> <button id="edit" class="edit">
+                    📝
+                </button></a>
+
+            <button id="delete" class="delete" onclick="deldata()">
+                ×
+            </button>
+        </div>
+
+
+
+    </section>
+    <script src="/library/notify.js"></script>
+    <script src="/library/Sidebar.js"></script>
+    <script>
+
+        //card creating process
+        //profile card function
+        let userDetails = JSON.parse(window.localStorage.getItem("Doctor_category"))
+        console.log(userDetails);
+        let emailuser = window.localStorage.getItem("Current_User_id")
+        console.log(emailuser);
+
+        function login_data(e) {
+            return e.Email == emailuser;
+        }
+        user_list = userDetails.find(login_data);
+        console.log(user_list);
+        let username = document.getElementById("name");
+        let userprofile = document.getElementById("profimg");
+        let email = document.getElementById("emailvalue");
+        let number = document.getElementById("Numbervalue");
+
+
+        username.innerText = "Dr. " + user_list["Username"];
+        userprofile.src = user_list["Profile"];
+        email.innerText = user_list["Email"];
+        number.innerText = user_list["Contact"];
+
+
+
+
+        //delete function 
+        function deldata() {
+            if (confirm("Are you sure?")) {
+                let user_data = JSON.parse(localStorage.getItem("Doctor_category"));
+                let user_email = localStorage.getItem("Current_User_id");
+                let userID = document.getElementById("emailkey").value = user_email;
+                console.log(userID)
+
+                // function login_data(e) {
+                //     return e.Email == userID;
+                // }
+                // user_list = user_data.find(login_data()); ~
+
+                console.log(user_list)
+                const indexOfuser = user_list;
+
+                user_data.splice(indexOfuser, 1);
+
+                localStorage.setItem('Doctor_category', JSON.stringify(user_data));
+                Notify.success("Successfully Deleted")
+                location.href = "./index.html"
+            }
+        }
+
+
+            // modeSwitch.addEventListener("click", () => {
+        //     body.classList.toggle("dark");
+
+        //     if (body.classList.contains("dark")) {
+        //         modeText.innerText = "Light mode";
+        //     } else {
+        //         modeText.innerText = "Dark mode";
+
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

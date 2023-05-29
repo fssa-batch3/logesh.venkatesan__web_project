@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Patient |FreshBYE</title>
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="/assest/Styles/Home.css">
+    <link rel="stylesheet" href="/assest/Styles/patient.css">
+
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--<title>Dashboard Sidebar Menu</title>-->
+</head>
+
+<body>
+
+
+    <section id="home" class="home">
+        <h1 id="h1header">Patients<span id="h1headerspan"> List</span></h1>
+        <div id="cardcon">
+
+        </div>
+        <div class="Add_post">
+            <a href="./New_Post.html"><button class="post">Book Appointment</button></a>
+        </div>
+    </section>
+    <script src="/library/Sidebar.js"></script>
+    <script>
+
+
+        let patient = JSON.parse(localStorage.getItem("Patient_Detail"));
+        console.log(patient);
+
+        for (let i = 0; i < patient.length; i++) {
+            let card = document.createElement("div");
+            card.setAttribute("class", "card");
+            console.log(card);
+
+            let img = document.createElement("img");
+            img.setAttribute("class", "mini-img-1");
+            img.setAttribute("src", patient[i]['Profile']);
+            card.append(img);
+            // console.log(img);
+
+            let Name = document.createElement("h2");
+            Name.setAttribute("class", "min-heading-2");
+            Name.innerText = patient[i]['Username'];
+            card.append(Name);
+            // console.log(Name);
+            let Specialist = document.createElement("h3");
+            Specialist.setAttribute("class", "min-heading-2");
+            Specialist.innerText = patient[i]['aboutpat'];
+            card.append(Specialist);
+
+            let anchor = document.createElement('a');
+            anchor.setAttribute('href', "/patientsdetails.html?id=" + patient[i]['id']);
+
+            let Details = document.createElement('button');
+            Details.innerText = 'Details';
+            Details.setAttribute("class", "detailsbtn");
+            // button.setAttribute("onclick", "deldata()")
+            anchor.append(Details);
+            card.append(anchor)
+            // console.log(button1);
+            let container = document.getElementById("cardcon");
+            container.append(card);
+        }
+
+
+
+
+
+
+        // modeSwitch.addEventListener("click", () => {
+        //     body.classList.toggle("dark");
+
+        //     if (body.classList.contains("dark")) {
+        //         modeText.innerText = "Light mode";
+        //     } else {
+        //         modeText.innerText = "Dark mode";
+
+        //     }
+        // });
+    </script>
+
+</body>
+
+</html><a href="/User_Personas/Patient/pages/patientsdetails.html">
+
+
+
+    <!-- <body class="main-parent">
+    <div class="containerOfHole" id="containerOfHole"></div>
+   
+</body>
+
+
+</html> -->
